@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<meta charset='utf-8'>
+<head>
+	<th:block th:include="include :: header('修改CTEPH调查')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-cteph-edit" th:object="${cteph}">
+            <input id="id" name="id" th:field="*{id}"  type="hidden">
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">编码：</label>
+				<div class="col-sm-8">
+					<input id="code" name="code" th:field="*{code}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">科室：</label>
+				<div class="col-sm-8">
+					<input id="department" name="department" th:field="*{department}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">制表人：</label>
+				<div class="col-sm-8">
+					<input id="maker" name="maker" th:field="*{maker}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">患者姓名：</label>
+				<div class="col-sm-8">
+					<input id="patientName" name="patientName" th:field="*{patientName}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">患者性别：</label>
+				<div class="col-sm-8">
+					<input id="patientSex" name="patientSex" th:field="*{patientSex}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">患者地址：</label>
+				<div class="col-sm-8">
+					<input id="patientAddress" name="patientAddress" th:field="*{patientAddress}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">生日：</label>
+				<div class="col-sm-8">
+					<input id="birthday" name="birthday" th:field="*{birthday}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">身高：</label>
+				<div class="col-sm-8">
+					<input id="height" name="height" th:field="*{height}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">体重：</label>
+				<div class="col-sm-8">
+					<input id="weight" name="weight" th:field="*{weight}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">首发症状时间：</label>
+				<div class="col-sm-8">
+					<input id="firsttime" name="firsttime" th:field="*{firsttime}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">特殊临床症状体征：</label>
+				<div class="col-sm-8">
+					<input id="specialsigns" name="specialsigns" th:field="*{specialsigns}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">既往静脉血栓栓塞症（VTE）病史：</label>
+				<div class="col-sm-8">
+					<input id="vtehistory" name="vtehistory" th:field="*{vtehistory}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">急性肺栓塞：</label>
+				<div class="col-sm-8">
+					<input id="ape" name="ape" th:field="*{ape}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">下肢深静脉血栓：</label>
+				<div class="col-sm-8">
+					<input id="ledvt" name="ledvt" th:field="*{ledvt}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">其他部位深静脉血栓：</label>
+				<div class="col-sm-8">
+					<input id="otherthrombus" name="otherthrombus" th:field="*{otherthrombus}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">首发VTE事件时间：</label>
+				<div class="col-sm-8">
+					<input id="firstvtetime" name="firstvtetime" th:field="*{firstvtetime}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">是否有VTE事件复发：</label>
+				<div class="col-sm-8">
+					<input id="vterelapse" name="vterelapse" th:field="*{vterelapse}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">恶性肿瘤：</label>
+				<div class="col-sm-8">
+					<input id="malignanttumor" name="malignanttumor" th:field="*{malignanttumor}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">具体肿瘤诊断：</label>
+				<div class="col-sm-8">
+					<input id="specifictumor" name="specifictumor" th:field="*{specifictumor}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">诊断时间：</label>
+				<div class="col-sm-8">
+					<input id="malignanttumordate" name="malignanttumordate" th:field="*{malignanttumordate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">脾切除：</label>
+				<div class="col-sm-8">
+					<input id="splenectomy" name="splenectomy" th:field="*{splenectomy}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">脾切除手术时间：</label>
+				<div class="col-sm-8">
+					<input id="splenectormydate" name="splenectormydate" th:field="*{splenectormydate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">起搏器植入：</label>
+				<div class="col-sm-8">
+					<input id="pacemaker" name="pacemaker" th:field="*{pacemaker}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">起搏器植入时间：</label>
+				<div class="col-sm-8">
+					<input id="pacemakerdate" name="pacemakerdate" th:field="*{pacemakerdate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">脑室心房分流手术：</label>
+				<div class="col-sm-8">
+					<input id="atrialhistory" name="atrialhistory" th:field="*{atrialhistory}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">手术时间：</label>
+				<div class="col-sm-8">
+					<input id="atrialhistorydate" name="atrialhistorydate" th:field="*{atrialhistorydate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">下肢静脉曲张：</label>
+				<div class="col-sm-8">
+					<input id="levv" name="levv" th:field="*{levv}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">下肢静脉曲张诊断时间：</label>
+				<div class="col-sm-8">
+					<input id="levvdate" name="levvdate" th:field="*{levvdate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">炎症性肠病：</label>
+				<div class="col-sm-8">
+					<input id="ibd" name="ibd" th:field="*{ibd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">炎症性肠病具体诊断：</label>
+				<div class="col-sm-8">
+					<input id="ibddiagnosis" name="ibddiagnosis" th:field="*{ibddiagnosis}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">炎症性肠病诊断时间：</label>
+				<div class="col-sm-8">
+					<input id="ibddate" name="ibddate" th:field="*{ibddate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">结缔组织病：</label>
+				<div class="col-sm-8">
+					<input id="connectivetissue" name="connectivetissue" th:field="*{connectivetissue}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗磷脂抗体综合征：</label>
+				<div class="col-sm-8">
+					<input id="aas" name="aas" th:field="*{aas}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">狼疮抗凝物（LA）：</label>
+				<div class="col-sm-8">
+					<input id="la" name="la" th:field="*{la}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">ACL IgG：</label>
+				<div class="col-sm-8">
+					<input id="aclIgg" name="aclIgg" th:field="*{aclIgg}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">ACL IgM：</label>
+				<div class="col-sm-8">
+					<input id="aclIgm" name="aclIgm" th:field="*{aclIgm}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">β2GP1 IgG：</label>
+				<div class="col-sm-8">
+					<input id="lgg" name="lgg" th:field="*{lgg}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">β2GP1 IgM：</label>
+				<div class="col-sm-8">
+					<input id="lgm" name="lgm" th:field="*{lgm}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">系统性红斑狼疮：</label>
+				<div class="col-sm-8">
+					<input id="sie" name="sie" th:field="*{sie}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">干燥综合征：</label>
+				<div class="col-sm-8">
+					<input id="sjogrens" name="sjogrens" th:field="*{sjogrens}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">系统性硬化症：</label>
+				<div class="col-sm-8">
+					<input id="ssclerosis" name="ssclerosis" th:field="*{ssclerosis}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">混合性结缔组织病：</label>
+				<div class="col-sm-8">
+					<input id="mctd" name="mctd" th:field="*{mctd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">类风湿性关节炎：</label>
+				<div class="col-sm-8">
+					<input id="rarthritis" name="rarthritis" th:field="*{rarthritis}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">未分化结缔组织病：</label>
+				<div class="col-sm-8">
+					<input id="uctd" name="uctd" th:field="*{uctd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">其他结缔组织病：</label>
+				<div class="col-sm-8">
+					<input id="octd" name="octd" th:field="*{octd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">具体其他结缔组织病：</label>
+				<div class="col-sm-8">
+					<input id="octdspecific" name="octdspecific" th:field="*{octdspecific}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">高同型半胱氨酸（HCY）血症：</label>
+				<div class="col-sm-8">
+					<input id="hps" name="hps" th:field="*{hps}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">HCY水平：</label>
+				<div class="col-sm-8">
+					<input id="hcylevel" name="hcylevel" th:field="*{hcylevel}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">参考值上限：</label>
+				<div class="col-sm-8">
+					<input id="maximum" name="maximum" th:field="*{maximum}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">易栓三项：</label>
+				<div class="col-sm-8">
+					<input id="threeitems" name="threeitems" th:field="*{threeitems}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">ATIII %：</label>
+				<div class="col-sm-8">
+					<input id="at" name="at" th:field="*{at}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">蛋白S：</label>
+				<div class="col-sm-8">
+					<input id="proteins" name="proteins" th:field="*{proteins}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">蛋白C：</label>
+				<div class="col-sm-8">
+					<input id="proteinc" name="proteinc" th:field="*{proteinc}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">检测时或之前7日是否接受华法林抗凝治疗：</label>
+				<div class="col-sm-8">
+					<input id="hat" name="hat" th:field="*{hat}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">其他危险因素：</label>
+				<div class="col-sm-8">
+					<input id="otherriskjudge" name="otherriskjudge" th:field="*{otherriskjudge}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">具体危险因素：</label>
+				<div class="col-sm-8">
+					<input id="otherrisk" name="otherrisk" th:field="*{otherrisk}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">高血压：</label>
+				<div class="col-sm-8">
+					<input id="hypertension" name="hypertension" th:field="*{hypertension}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">冠心病：</label>
+				<div class="col-sm-8">
+					<input id="coronaryheart" name="coronaryheart" th:field="*{coronaryheart}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">冠心病是否已行血运重建：</label>
+				<div class="col-sm-8">
+					<input id="revascularization" name="revascularization" th:field="*{revascularization}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">糖尿病：</label>
+				<div class="col-sm-8">
+					<input id="diabetes" name="diabetes" th:field="*{diabetes}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">左心衰竭：</label>
+				<div class="col-sm-8">
+					<input id="lhfailure" name="lhfailure" th:field="*{lhfailure}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">左心衰竭具体：</label>
+				<div class="col-sm-8">
+					<input id="lhfailurespecific" name="lhfailurespecific" th:field="*{lhfailurespecific}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">慢性肾功能不全：</label>
+				<div class="col-sm-8">
+					<input id="renalinsufficiency" name="renalinsufficiency" th:field="*{renalinsufficiency}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">脑梗塞：</label>
+				<div class="col-sm-8">
+					<input id="cerebralinfarction" name="cerebralinfarction" th:field="*{cerebralinfarction}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">慢性阻塞性肺疾病：</label>
+				<div class="col-sm-8">
+					<input id="copd" name="copd" th:field="*{copd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">先天性心脏病：</label>
+				<div class="col-sm-8">
+					<input id="congenitalheart" name="congenitalheart" th:field="*{congenitalheart}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">先天性心脏病具体：</label>
+				<div class="col-sm-8">
+					<input id="chdspecific" name="chdspecific" th:field="*{chdspecific}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">甲状腺功能减低：</label>
+				<div class="col-sm-8">
+					<input id="hypothyroidism" name="hypothyroidism" th:field="*{hypothyroidism}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">甲状腺功能亢进：</label>
+				<div class="col-sm-8">
+					<input id="hyperthyroidism" name="hyperthyroidism" th:field="*{hyperthyroidism}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">贫血：</label>
+				<div class="col-sm-8">
+					<input id="anemia" name="anemia" th:field="*{anemia}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">红细胞增多症：</label>
+				<div class="col-sm-8">
+					<input id="polycythemia" name="polycythemia" th:field="*{polycythemia}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">嗜酸粒细胞增多增多症：</label>
+				<div class="col-sm-8">
+					<input id="eosinophilia" name="eosinophilia" th:field="*{eosinophilia}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">血小板减低：</label>
+				<div class="col-sm-8">
+					<input id="plateletlower" name="plateletlower" th:field="*{plateletlower}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">血小板增多：</label>
+				<div class="col-sm-8">
+					<input id="plateletup" name="plateletup" th:field="*{plateletup}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">其他重要合并疾病：</label>
+				<div class="col-sm-8">
+					<input id="othercomplications" name="othercomplications" th:field="*{othercomplications}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">具体疾病：</label>
+				<div class="col-sm-8">
+					<input id="othercomplicationss" name="othercomplicationss" th:field="*{othercomplicationss}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">确诊CTEPH时心功能分级：</label>
+				<div class="col-sm-8">
+					<input id="cteph" name="cteph" th:field="*{cteph}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">6MWD是否进行：</label>
+				<div class="col-sm-8">
+					<input id="sixmwd" name="sixmwd" th:field="*{sixmwd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">6MWD未进行原因：</label>
+				<div class="col-sm-8">
+					<input id="noreason1" name="noreason1" th:field="*{noreason1}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">步行距离（m）：</label>
+				<div class="col-sm-8">
+					<input id="walking" name="walking" th:field="*{walking}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">呼吸功能：</label>
+				<div class="col-sm-8">
+					<input id="respiratory" name="respiratory" th:field="*{respiratory}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">VC MAX (%)：</label>
+				<div class="col-sm-8">
+					<input id="vcmax" name="vcmax" th:field="*{vcmax}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">TLC (%)：</label>
+				<div class="col-sm-8">
+					<input id="tlc" name="tlc" th:field="*{tlc}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">RV(%)：</label>
+				<div class="col-sm-8">
+					<input id="rv" name="rv" th:field="*{rv}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">RV/TLC (%)：</label>
+				<div class="col-sm-8">
+					<input id="rvtlc" name="rvtlc" th:field="*{rvtlc}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">FEV1 (%)实/预：</label>
+				<div class="col-sm-8">
+					<input id="fev1" name="fev1" th:field="*{fev1}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">FEV1/FVC (%)实测：</label>
+				<div class="col-sm-8">
+					<input id="fev1fvc" name="fev1fvc" th:field="*{fev1fvc}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">FEF25-75 (%)：</label>
+				<div class="col-sm-8">
+					<input id="fef" name="fef" th:field="*{fef}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">TLCO SB (%)：</label>
+				<div class="col-sm-8">
+					<input id="tlcosb" name="tlcosb" th:field="*{tlcosb}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">TLCO/VA (%)：</label>
+				<div class="col-sm-8">
+					<input id="tlcova" name="tlcova" th:field="*{tlcova}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">心肺运动试验：</label>
+				<div class="col-sm-8">
+					<input id="cet" name="cet" th:field="*{cet}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">心脏MRI：</label>
+				<div class="col-sm-8">
+					<input id="heartmri" name="heartmri" th:field="*{heartmri}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">肺灌注显像：</label>
+				<div class="col-sm-8">
+					<input id="ppi" name="ppi" th:field="*{ppi}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">CT肺动脉增强：</label>
+				<div class="col-sm-8">
+					<input id="ctpat" name="ctpat" th:field="*{ctpat}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">MRI肺动脉增强：</label>
+				<div class="col-sm-8">
+					<input id="mripae" name="mripae" th:field="*{mripae}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">：</label>
+				<div class="col-sm-8">
+					<input id="cmri" name="cmri" th:field="*{cmri}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">右心导管：</label>
+				<div class="col-sm-8">
+					<input id="rhc" name="rhc" th:field="*{rhc}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">右心导管未做原因：</label>
+				<div class="col-sm-8">
+					<input id="noreason2" name="noreason2" th:field="*{noreason2}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">其他原因：</label>
+				<div class="col-sm-8">
+					<input id="otherreason" name="otherreason" th:field="*{otherreason}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">肺动脉造影：</label>
+				<div class="col-sm-8">
+					<input id="pa" name="pa" th:field="*{pa}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">首次导管时间：</label>
+				<div class="col-sm-8">
+					<input id="firstcatheter" name="firstcatheter" th:field="*{firstcatheter}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">HR, bpm：</label>
+				<div class="col-sm-8">
+					<input id="hr" name="hr" th:field="*{hr}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">BP收缩(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="bpshrink" name="bpshrink" th:field="*{bpshrink}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">BP舒张(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="bprelaxation" name="bprelaxation" th:field="*{bprelaxation}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">BP平均(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="bpave" name="bpave" th:field="*{bpave}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">RAP：</label>
+				<div class="col-sm-8">
+					<input id="rap" name="rap" th:field="*{rap}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">RAP收缩(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="rapshrink" name="rapshrink" th:field="*{rapshrink}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">RAP舒张(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="raprelaxation1" name="raprelaxation1" th:field="*{raprelaxation1}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">RAP平均(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="rapave" name="rapave" th:field="*{rapave}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAP：</label>
+				<div class="col-sm-8">
+					<input id="pap" name="pap" th:field="*{pap}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAP收缩(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="papshrink" name="papshrink" th:field="*{papshrink}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAP舒张(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="raprelaxation2" name="raprelaxation2" th:field="*{raprelaxation2}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAP平均(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="papave" name="papave" th:field="*{papave}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAWP：</label>
+				<div class="col-sm-8">
+					<input id="pawp" name="pawp" th:field="*{pawp}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAWP收缩(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="pawpshrink" name="pawpshrink" th:field="*{pawpshrink}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAWP舒张(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="pawprelaxation" name="pawprelaxation" th:field="*{pawprelaxation}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PAWP平均(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="pawpave" name="pawpave" th:field="*{pawpave}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">CO (Qp), L/min：</label>
+				<div class="col-sm-8">
+					<input id="co" name="co" th:field="*{co}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">CO测定方法：</label>
+				<div class="col-sm-8">
+					<input id="comethod" name="comethod" th:field="*{comethod}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">CI, L/min/m2：</label>
+				<div class="col-sm-8">
+					<input id="ci" name="ci" th:field="*{ci}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PVR, Wood U：</label>
+				<div class="col-sm-8">
+					<input id="pvr" name="pvr" th:field="*{pvr}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">左室舒张末内径LVEDD (mm)：</label>
+				<div class="col-sm-8">
+					<input id="lvedd" name="lvedd" th:field="*{lvedd}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">左室射血分数LVEF (%)：</label>
+				<div class="col-sm-8">
+					<input id="lvef" name="lvef" th:field="*{lvef}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">超声估测肺动脉收缩压PASP(mm Hg)：</label>
+				<div class="col-sm-8">
+					<input id="pasp" name="pasp" th:field="*{pasp}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">三尖瓣环收缩期位移 TAPSE（mm）：</label>
+				<div class="col-sm-8">
+					<input id="tapse" name="tapse" th:field="*{tapse}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">心包积液：</label>
+				<div class="col-sm-8">
+					<input id="pe" name="pe" th:field="*{pe}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">血型：</label>
+				<div class="col-sm-8">
+					<input id="bloodgroup" name="bloodgroup" th:field="*{bloodgroup}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">D-二聚体(μg/mL)：</label>
+				<div class="col-sm-8">
+					<input id="ddimer" name="ddimer" th:field="*{ddimer}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">NT-proBNP：</label>
+				<div class="col-sm-8">
+					<input id="nt" name="nt" th:field="*{nt}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">NT-proBNP pg/ml：</label>
+				<div class="col-sm-8">
+					<input id="ntnumber" name="ntnumber" th:field="*{ntnumber}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">AST（IU/ml）：</label>
+				<div class="col-sm-8">
+					<input id="ast" name="ast" th:field="*{ast}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">ALT（IU/ml）：</label>
+				<div class="col-sm-8">
+					<input id="alt" name="alt" th:field="*{alt}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">Tbil（μmol/L）：</label>
+				<div class="col-sm-8">
+					<input id="tbil" name="tbil" th:field="*{tbil}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">Dbil（μmol/L）：</label>
+				<div class="col-sm-8">
+					<input id="dbil" name="dbil" th:field="*{dbil}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">血Cr（μmol/L）：</label>
+				<div class="col-sm-8">
+					<input id="cr" name="cr" th:field="*{cr}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">动脉血气：</label>
+				<div class="col-sm-8">
+					<input id="bloodgas" name="bloodgas" th:field="*{bloodgas}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">动脉血气类型：</label>
+				<div class="col-sm-8">
+					<input id="abgt" name="abgt" th:field="*{abgt}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PCO2 mmHg：</label>
+				<div class="col-sm-8">
+					<input id="pco" name="pco" th:field="*{pco}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">PO2 mmHg：</label>
+				<div class="col-sm-8">
+					<input id="po" name="po" th:field="*{po}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">SaO2 %：</label>
+				<div class="col-sm-8">
+					<input id="sao" name="sao" th:field="*{sao}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">P(A-a) mmHg：</label>
+				<div class="col-sm-8">
+					<input id="paa" name="paa" th:field="*{paa}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗凝治疗：</label>
+				<div class="col-sm-8">
+					<input id="anticoagulant" name="anticoagulant" th:field="*{anticoagulant}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗凝治疗药物：</label>
+				<div class="col-sm-8">
+					<input id="drug1" name="drug1" th:field="*{drug1}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗凝治疗其他药物：</label>
+				<div class="col-sm-8">
+					<input id="otherdrug" name="otherdrug" th:field="*{otherdrug}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗血小板治疗：</label>
+				<div class="col-sm-8">
+					<input id="antiplatelet" name="antiplatelet" th:field="*{antiplatelet}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗血小板治疗药物：</label>
+				<div class="col-sm-8">
+					<input id="drug5" name="drug5" th:field="*{drug5}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">抗血小板治疗其他药物：</label>
+				<div class="col-sm-8">
+					<input id="otherdrug2" name="otherdrug2" th:field="*{otherdrug2}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">靶向治疗：</label>
+				<div class="col-sm-8">
+					<input id="targeting" name="targeting" th:field="*{targeting}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">利奥西呱：</label>
+				<div class="col-sm-8">
+					<input id="laxg" name="laxg" th:field="*{laxg}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">5型磷酸二酯酶抑制剂：</label>
+				<div class="col-sm-8">
+					<input id="fivepi" name="fivepi" th:field="*{fivepi}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">5型磷酸二酯酶抑制剂药物：</label>
+				<div class="col-sm-8">
+					<input id="drug2" name="drug2" th:field="*{drug2}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">内皮素受体拮抗剂：</label>
+				<div class="col-sm-8">
+					<input id="era" name="era" th:field="*{era}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">内皮素受体拮抗剂药物：</label>
+				<div class="col-sm-8">
+					<input id="drug3" name="drug3" th:field="*{drug3}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">前列环素：</label>
+				<div class="col-sm-8">
+					<input id="prostacyclin" name="prostacyclin" th:field="*{prostacyclin}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">前列环素药物：</label>
+				<div class="col-sm-8">
+					<input id="drug4" name="drug4" th:field="*{drug4}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">肺动脉内膜剥脱术：</label>
+				<div class="col-sm-8">
+					<input id="exfoliation" name="exfoliation" th:field="*{exfoliation}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">肺动脉内膜剥脱术时间：</label>
+				<div class="col-sm-8">
+					<input id="exfoliationdate" name="exfoliationdate" th:field="*{exfoliationdate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">球囊肺动脉成形术：</label>
+				<div class="col-sm-8">
+					<input id="angioplasty" name="angioplasty" th:field="*{angioplasty}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">球囊肺动脉成形术时间：</label>
+				<div class="col-sm-8">
+					<input id="angioplastyfdate" name="angioplastyfdate" th:field="*{angioplastyfdate}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">是否死亡：</label>
+				<div class="col-sm-8">
+					<input id="death" name="death" th:field="*{death}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">死亡原因：</label>
+				<div class="col-sm-8">
+					<input id="deathreason" name="deathreason" th:field="*{deathreason}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">创建者：</label>
+				<div class="col-sm-8">
+					<input id="createBy" name="createBy" th:field="*{createBy}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">创建时间：</label>
+				<div class="col-sm-8">
+					<input id="createTime" name="createTime" th:field="*{createTime}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">修改人：</label>
+				<div class="col-sm-8">
+					<input id="updateBy" name="updateBy" th:field="*{updateBy}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">修改时间：</label>
+				<div class="col-sm-8">
+					<input id="updateTime" name="updateTime" th:field="*{updateTime}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">时间戳：</label>
+				<div class="col-sm-8">
+					<input id="ts" name="ts" th:field="*{ts}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">删除标记：</label>
+				<div class="col-sm-8">
+					<input id="dr" name="dr" th:field="*{dr}" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">SvO2 (肺动脉氧饱和度), %：</label>
+				<div class="col-sm-8">
+					<input id="svo2" name="svo2" th:field="*{svo2}" class="form-control" type="text">
+				</div>
+			</div>
+		</form>
+    </div>
+    <div th:include="include::footer"></div>
+    <script type="text/javascript">
+		var prefix = ctx + "system/cteph";
+		$("#form-cteph-edit").validate({
+			rules:{
+				xxxx:{
+					required:true,
+				},
+			},
+			focusCleanup: true
+		});
+		
+		function submitHandler() {
+	        if ($.validate.form()) {
+	            $.operate.save(prefix + "/edit", $('#form-cteph-edit').serialize());
+	        }
+	    }
+	</script>
+</body>
+</html>

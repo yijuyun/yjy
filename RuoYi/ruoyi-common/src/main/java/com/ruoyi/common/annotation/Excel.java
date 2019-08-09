@@ -17,7 +17,7 @@ public @interface Excel
     /**
      * 导出到Excel中的名字.
      */
-    public String name();
+    public String name() default "";
 
     /**
      * 日期格式, 如: yyyy-MM-dd
@@ -28,6 +28,11 @@ public @interface Excel
      * 读取内容转表达式 (如: 0=男,1=女,2=未知)
      */
     public String readConverterExp() default "";
+
+    /**
+     * 导出类型（0数字 1字符串）
+     */
+    public ColumnType cellType() default ColumnType.STRING;
 
     /**
      * 导出时在excel中每个列的高度 单位为字符
@@ -80,6 +85,22 @@ public @interface Excel
         private final int value;
 
         Type(int value)
+        {
+            this.value = value;
+        }
+
+        public int value()
+        {
+            return this.value;
+        }
+    }
+
+    public enum ColumnType
+    {
+        NUMERIC(0), STRING(1);
+        private final int value;
+
+        ColumnType(int value)
         {
             this.value = value;
         }

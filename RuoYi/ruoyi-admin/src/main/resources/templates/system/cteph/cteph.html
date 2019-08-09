@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset='utf-8'>
+<head>
+	<th:block th:include="include :: header('CTEPH调查列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+		<div class="row">
+			<div class="col-sm-12 search-collapse">
+				<form id="formId">
+					<div class="select-list">
+						<ul>
+							<li>
+								编码：<input type="text" name="code"/>
+							</li>
+
+							<li>
+								科室：<input type="text" name="department"/>
+							</li>
+
+							<li>
+								制表人：<input type="text" name="maker"/>
+							</li>
+
+							<li>
+								患者姓名：<input type="text" name="patientName"/>
+							</li>
+
+							<li>
+								患者性别：<input type="text" name="patientSex"/>
+							</li>
+
+							<li>
+								患者地址：<input type="text" name="patientAddress"/>
+							</li>
+
+							<li>
+								生日：<input type="text" name="birthday"/>
+							</li>
+
+							<li>
+								身高：<input type="text" name="height"/>
+							</li>
+
+							<li>
+								体重：<input type="text" name="weight"/>
+							</li>
+
+							<li>
+								首发症状时间：<input type="text" name="firsttime"/>
+							</li>
+
+							<li>
+								特殊临床症状体征：<input type="text" name="specialsigns"/>
+							</li>
+
+							<li>
+								既往静脉血栓栓塞症（VTE）病史：<input type="text" name="vtehistory"/>
+							</li>
+
+							<li>
+								急性肺栓塞：<input type="text" name="ape"/>
+							</li>
+
+							<li>
+								下肢深静脉血栓：<input type="text" name="ledvt"/>
+							</li>
+
+							<li>
+								其他部位深静脉血栓：<input type="text" name="otherthrombus"/>
+							</li>
+
+							<li>
+								首发VTE事件时间：<input type="text" name="firstvtetime"/>
+							</li>
+
+							<li>
+								是否有VTE事件复发：<input type="text" name="vterelapse"/>
+							</li>
+
+							<li>
+								恶性肿瘤：<input type="text" name="malignanttumor"/>
+							</li>
+
+							<li>
+								具体肿瘤诊断：<input type="text" name="specifictumor"/>
+							</li>
+
+							<li>
+								诊断时间：<input type="text" name="malignanttumordate"/>
+							</li>
+
+							<li>
+								脾切除：<input type="text" name="splenectomy"/>
+							</li>
+
+							<li>
+								脾切除手术时间：<input type="text" name="splenectormydate"/>
+							</li>
+
+							<li>
+								起搏器植入：<input type="text" name="pacemaker"/>
+							</li>
+
+							<li>
+								起搏器植入时间：<input type="text" name="pacemakerdate"/>
+							</li>
+
+							<li>
+								脑室心房分流手术：<input type="text" name="atrialhistory"/>
+							</li>
+
+							<li>
+								手术时间：<input type="text" name="atrialhistorydate"/>
+							</li>
+
+							<li>
+								下肢静脉曲张：<input type="text" name="levv"/>
+							</li>
+
+							<li>
+								下肢静脉曲张诊断时间：<input type="text" name="levvdate"/>
+							</li>
+
+							<li>
+								炎症性肠病：<input type="text" name="ibd"/>
+							</li>
+
+							<li>
+								炎症性肠病具体诊断：<input type="text" name="ibddiagnosis"/>
+							</li>
+
+							<li>
+								炎症性肠病诊断时间：<input type="text" name="ibddate"/>
+							</li>
+
+							<li>
+								结缔组织病：<input type="text" name="connectivetissue"/>
+							</li>
+
+							<li>
+								抗磷脂抗体综合征：<input type="text" name="aas"/>
+							</li>
+
+							<li>
+								狼疮抗凝物（LA）：<input type="text" name="la"/>
+							</li>
+
+							<li>
+								ACL IgG：<input type="text" name="aclIgg"/>
+							</li>
+
+							<li>
+								ACL IgM：<input type="text" name="aclIgm"/>
+							</li>
+
+							<li>
+								β2GP1 IgG：<input type="text" name="lgg"/>
+							</li>
+
+							<li>
+								β2GP1 IgM：<input type="text" name="lgm"/>
+							</li>
+
+							<li>
+								系统性红斑狼疮：<input type="text" name="sie"/>
+							</li>
+
+							<li>
+								干燥综合征：<input type="text" name="sjogrens"/>
+							</li>
+
+							<li>
+								系统性硬化症：<input type="text" name="ssclerosis"/>
+							</li>
+
+							<li>
+								混合性结缔组织病：<input type="text" name="mctd"/>
+							</li>
+
+							<li>
+								类风湿性关节炎：<input type="text" name="rarthritis"/>
+							</li>
+
+							<li>
+								未分化结缔组织病：<input type="text" name="uctd"/>
+							</li>
+
+							<li>
+								其他结缔组织病：<input type="text" name="octd"/>
+							</li>
+
+							<li>
+								具体其他结缔组织病：<input type="text" name="octdspecific"/>
+							</li>
+
+							<li>
+								高同型半胱氨酸（HCY）血症：<input type="text" name="hps"/>
+							</li>
+
+							<li>
+								HCY水平：<input type="text" name="hcylevel"/>
+							</li>
+
+							<li>
+								参考值上限：<input type="text" name="maximum"/>
+							</li>
+
+							<li>
+								易栓三项：<input type="text" name="threeitems"/>
+							</li>
+
+							<li>
+								ATIII %：<input type="text" name="at"/>
+							</li>
+
+							<li>
+								蛋白S：<input type="text" name="proteins"/>
+							</li>
+
+							<li>
+								蛋白C：<input type="text" name="proteinc"/>
+							</li>
+
+							<li>
+								检测时或之前7日是否接受华法林抗凝治疗：<input type="text" name="hat"/>
+							</li>
+
+							<li>
+								其他危险因素：<input type="text" name="otherriskjudge"/>
+							</li>
+
+							<li>
+								具体危险因素：<input type="text" name="otherrisk"/>
+							</li>
+
+							<li>
+								高血压：<input type="text" name="hypertension"/>
+							</li>
+
+							<li>
+								冠心病：<input type="text" name="coronaryheart"/>
+							</li>
+
+							<li>
+								冠心病是否已行血运重建：<input type="text" name="revascularization"/>
+							</li>
+
+							<li>
+								糖尿病：<input type="text" name="diabetes"/>
+							</li>
+
+							<li>
+								左心衰竭：<input type="text" name="lhfailure"/>
+							</li>
+
+							<li>
+								左心衰竭具体：<input type="text" name="lhfailurespecific"/>
+							</li>
+
+							<li>
+								慢性肾功能不全：<input type="text" name="renalinsufficiency"/>
+							</li>
+
+							<li>
+								脑梗塞：<input type="text" name="cerebralinfarction"/>
+							</li>
+
+							<li>
+								慢性阻塞性肺疾病：<input type="text" name="copd"/>
+							</li>
+
+							<li>
+								先天性心脏病：<input type="text" name="congenitalheart"/>
+							</li>
+
+							<li>
+								先天性心脏病具体：<input type="text" name="chdspecific"/>
+							</li>
+
+							<li>
+								甲状腺功能减低：<input type="text" name="hypothyroidism"/>
+							</li>
+
+							<li>
+								甲状腺功能亢进：<input type="text" name="hyperthyroidism"/>
+							</li>
+
+							<li>
+								贫血：<input type="text" name="anemia"/>
+							</li>
+
+							<li>
+								红细胞增多症：<input type="text" name="polycythemia"/>
+							</li>
+
+							<li>
+								嗜酸粒细胞增多增多症：<input type="text" name="eosinophilia"/>
+							</li>
+
+							<li>
+								血小板减低：<input type="text" name="plateletlower"/>
+							</li>
+
+							<li>
+								血小板增多：<input type="text" name="plateletup"/>
+							</li>
+
+							<li>
+								其他重要合并疾病：<input type="text" name="othercomplications"/>
+							</li>
+
+							<li>
+								具体疾病：<input type="text" name="othercomplicationss"/>
+							</li>
+
+							<li>
+								确诊CTEPH时心功能分级：<input type="text" name="cteph"/>
+							</li>
+
+							<li>
+								6MWD是否进行：<input type="text" name="sixmwd"/>
+							</li>
+
+							<li>
+								6MWD未进行原因：<input type="text" name="noreason1"/>
+							</li>
+
+							<li>
+								步行距离（m）：<input type="text" name="walking"/>
+							</li>
+
+							<li>
+								呼吸功能：<input type="text" name="respiratory"/>
+							</li>
+
+							<li>
+								VC MAX (%)：<input type="text" name="vcmax"/>
+							</li>
+
+							<li>
+								TLC (%)：<input type="text" name="tlc"/>
+							</li>
+
+							<li>
+								RV(%)：<input type="text" name="rv"/>
+							</li>
+
+							<li>
+								RV/TLC (%)：<input type="text" name="rvtlc"/>
+							</li>
+
+							<li>
+								FEV1 (%)实/预：<input type="text" name="fev1"/>
+							</li>
+
+							<li>
+								FEV1/FVC (%)实测：<input type="text" name="fev1fvc"/>
+							</li>
+
+							<li>
+								FEF25-75 (%)：<input type="text" name="fef"/>
+							</li>
+
+							<li>
+								TLCO SB (%)：<input type="text" name="tlcosb"/>
+							</li>
+
+							<li>
+								TLCO/VA (%)：<input type="text" name="tlcova"/>
+							</li>
+
+							<li>
+								心肺运动试验：<input type="text" name="cet"/>
+							</li>
+
+							<li>
+								心脏MRI：<input type="text" name="heartmri"/>
+							</li>
+
+							<li>
+								肺灌注显像：<input type="text" name="ppi"/>
+							</li>
+
+							<li>
+								CT肺动脉增强：<input type="text" name="ctpat"/>
+							</li>
+
+							<li>
+								MRI肺动脉增强：<input type="text" name="mripae"/>
+							</li>
+
+							<li>
+								：<input type="text" name="cmri"/>
+							</li>
+
+							<li>
+								右心导管：<input type="text" name="rhc"/>
+							</li>
+
+							<li>
+								右心导管未做原因：<input type="text" name="noreason2"/>
+							</li>
+
+							<li>
+								其他原因：<input type="text" name="otherreason"/>
+							</li>
+
+							<li>
+								肺动脉造影：<input type="text" name="pa"/>
+							</li>
+
+							<li>
+								首次导管时间：<input type="text" name="firstcatheter"/>
+							</li>
+
+							<li>
+								HR, bpm：<input type="text" name="hr"/>
+							</li>
+
+							<li>
+								BP收缩(mm Hg)：<input type="text" name="bpshrink"/>
+							</li>
+
+							<li>
+								BP舒张(mm Hg)：<input type="text" name="bprelaxation"/>
+							</li>
+
+							<li>
+								BP平均(mm Hg)：<input type="text" name="bpave"/>
+							</li>
+
+							<li>
+								RAP：<input type="text" name="rap"/>
+							</li>
+
+							<li>
+								RAP收缩(mm Hg)：<input type="text" name="rapshrink"/>
+							</li>
+
+							<li>
+								RAP舒张(mm Hg)：<input type="text" name="raprelaxation1"/>
+							</li>
+
+							<li>
+								RAP平均(mm Hg)：<input type="text" name="rapave"/>
+							</li>
+
+							<li>
+								PAP：<input type="text" name="pap"/>
+							</li>
+
+							<li>
+								PAP收缩(mm Hg)：<input type="text" name="papshrink"/>
+							</li>
+
+							<li>
+								PAP舒张(mm Hg)：<input type="text" name="raprelaxation2"/>
+							</li>
+
+							<li>
+								PAP平均(mm Hg)：<input type="text" name="papave"/>
+							</li>
+
+							<li>
+								PAWP：<input type="text" name="pawp"/>
+							</li>
+
+							<li>
+								PAWP收缩(mm Hg)：<input type="text" name="pawpshrink"/>
+							</li>
+
+							<li>
+								PAWP舒张(mm Hg)：<input type="text" name="pawprelaxation"/>
+							</li>
+
+							<li>
+								PAWP平均(mm Hg)：<input type="text" name="pawpave"/>
+							</li>
+
+							<li>
+								CO (Qp), L/min：<input type="text" name="co"/>
+							</li>
+
+							<li>
+								CO测定方法：<input type="text" name="comethod"/>
+							</li>
+
+							<li>
+								CI, L/min/m2：<input type="text" name="ci"/>
+							</li>
+
+							<li>
+								PVR, Wood U：<input type="text" name="pvr"/>
+							</li>
+
+							<li>
+								左室舒张末内径LVEDD (mm)：<input type="text" name="lvedd"/>
+							</li>
+
+							<li>
+								左室射血分数LVEF (%)：<input type="text" name="lvef"/>
+							</li>
+
+							<li>
+								超声估测肺动脉收缩压PASP(mm Hg)：<input type="text" name="pasp"/>
+							</li>
+
+							<li>
+								三尖瓣环收缩期位移 TAPSE（mm）：<input type="text" name="tapse"/>
+							</li>
+
+							<li>
+								心包积液：<input type="text" name="pe"/>
+							</li>
+
+							<li>
+								血型：<input type="text" name="bloodgroup"/>
+							</li>
+
+							<li>
+								D-二聚体(μg/mL)：<input type="text" name="ddimer"/>
+							</li>
+
+							<li>
+								NT-proBNP：<input type="text" name="nt"/>
+							</li>
+
+							<li>
+								NT-proBNP pg/ml：<input type="text" name="ntnumber"/>
+							</li>
+
+							<li>
+								AST（IU/ml）：<input type="text" name="ast"/>
+							</li>
+
+							<li>
+								ALT（IU/ml）：<input type="text" name="alt"/>
+							</li>
+
+							<li>
+								Tbil（μmol/L）：<input type="text" name="tbil"/>
+							</li>
+
+							<li>
+								Dbil（μmol/L）：<input type="text" name="dbil"/>
+							</li>
+
+							<li>
+								血Cr（μmol/L）：<input type="text" name="cr"/>
+							</li>
+
+							<li>
+								动脉血气：<input type="text" name="bloodgas"/>
+							</li>
+
+							<li>
+								动脉血气类型：<input type="text" name="abgt"/>
+							</li>
+
+							<li>
+								PCO2 mmHg：<input type="text" name="pco"/>
+							</li>
+
+							<li>
+								PO2 mmHg：<input type="text" name="po"/>
+							</li>
+
+							<li>
+								SaO2 %：<input type="text" name="sao"/>
+							</li>
+
+							<li>
+								P(A-a) mmHg：<input type="text" name="paa"/>
+							</li>
+
+							<li>
+								抗凝治疗：<input type="text" name="anticoagulant"/>
+							</li>
+
+							<li>
+								抗凝治疗药物：<input type="text" name="drug1"/>
+							</li>
+
+							<li>
+								抗凝治疗其他药物：<input type="text" name="otherdrug"/>
+							</li>
+
+							<li>
+								抗血小板治疗：<input type="text" name="antiplatelet"/>
+							</li>
+
+							<li>
+								抗血小板治疗药物：<input type="text" name="drug5"/>
+							</li>
+
+							<li>
+								抗血小板治疗其他药物：<input type="text" name="otherdrug2"/>
+							</li>
+
+							<li>
+								靶向治疗：<input type="text" name="targeting"/>
+							</li>
+
+							<li>
+								利奥西呱：<input type="text" name="laxg"/>
+							</li>
+
+							<li>
+								5型磷酸二酯酶抑制剂：<input type="text" name="fivepi"/>
+							</li>
+
+							<li>
+								5型磷酸二酯酶抑制剂药物：<input type="text" name="drug2"/>
+							</li>
+
+							<li>
+								内皮素受体拮抗剂：<input type="text" name="era"/>
+							</li>
+
+							<li>
+								内皮素受体拮抗剂药物：<input type="text" name="drug3"/>
+							</li>
+
+							<li>
+								前列环素：<input type="text" name="prostacyclin"/>
+							</li>
+
+							<li>
+								前列环素药物：<input type="text" name="drug4"/>
+							</li>
+
+							<li>
+								肺动脉内膜剥脱术：<input type="text" name="exfoliation"/>
+							</li>
+
+							<li>
+								肺动脉内膜剥脱术时间：<input type="text" name="exfoliationdate"/>
+							</li>
+
+							<li>
+								球囊肺动脉成形术：<input type="text" name="angioplasty"/>
+							</li>
+
+							<li>
+								球囊肺动脉成形术时间：<input type="text" name="angioplastyfdate"/>
+							</li>
+
+							<li>
+								是否死亡：<input type="text" name="death"/>
+							</li>
+
+							<li>
+								死亡原因：<input type="text" name="deathreason"/>
+							</li>
+
+							<li>
+								创建者：<input type="text" name="createBy"/>
+							</li>
+
+							<li>
+								创建时间：<input type="text" name="createTime"/>
+							</li>
+
+							<li>
+								修改人：<input type="text" name="updateBy"/>
+							</li>
+
+							<li>
+								修改时间：<input type="text" name="updateTime"/>
+							</li>
+
+							<li>
+								时间戳：<input type="text" name="ts"/>
+							</li>
+
+							<li>
+								删除标记：<input type="text" name="dr"/>
+							</li>
+
+							<li>
+								SvO2 (肺动脉氧饱和度), %：<input type="text" name="svo2"/>
+							</li>
+
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+			
+	        <div class="btn-group-sm" id="toolbar" role="group">
+				<a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:cteph:add">
+					<i class="fa fa-plus"></i> 添加
+				</a>
+				<a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:cteph:edit">
+					<i class="fa fa-edit"></i> 修改
+				</a>
+				<a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:cteph:remove">
+					<i class="fa fa-remove"></i> 删除
+				</a>
+				<a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:cteph:export">
+						<i class="fa fa-download"></i> 导出
+				 </a>
+			</div>
+			<div class="col-sm-12 select-table table-striped">
+				<table id="bootstrap-table" data-mobile-responsive="true"></table>
+			</div>
+		</div>
+	</div>
+    <div th:include="include :: footer"></div>
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('system:cteph:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:cteph:remove')}]];
+        var prefix = ctx + "system/cteph";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+				exportUrl: prefix + "/export",
+                modalName: "CTEPH调查",
+		        showExport: true,
+                columns: [{
+		            checkbox: true
+		        },
+				{
+					field : 'id', 
+					title : '主键',
+					visible: false
+				},
+				{
+					field : 'code', 
+					title : '编码',
+					sortable: true
+				},
+				{
+					field : 'department', 
+					title : '科室',
+					sortable: true
+				},
+				{
+					field : 'maker', 
+					title : '制表人',
+					sortable: true
+				},
+				{
+					field : 'patientName', 
+					title : '患者姓名',
+					sortable: true
+				},
+				{
+					field : 'patientSex', 
+					title : '患者性别',
+					sortable: true
+				},
+				{
+					field : 'patientAddress', 
+					title : '患者地址',
+					sortable: true
+				},
+				{
+					field : 'birthday', 
+					title : '生日',
+					sortable: true
+				},
+				{
+					field : 'height', 
+					title : '身高',
+					sortable: true
+				},
+				{
+					field : 'weight', 
+					title : '体重',
+					sortable: true
+				},
+				{
+					field : 'firsttime', 
+					title : '首发症状时间',
+					sortable: true
+				},
+				{
+					field : 'specialsigns', 
+					title : '特殊临床症状体征',
+					sortable: true
+				},
+				{
+					field : 'vtehistory', 
+					title : '既往静脉血栓栓塞症（VTE）病史',
+					sortable: true
+				},
+				{
+					field : 'ape', 
+					title : '急性肺栓塞',
+					sortable: true
+				},
+				{
+					field : 'ledvt', 
+					title : '下肢深静脉血栓',
+					sortable: true
+				},
+				{
+					field : 'otherthrombus', 
+					title : '其他部位深静脉血栓',
+					sortable: true
+				},
+				{
+					field : 'firstvtetime', 
+					title : '首发VTE事件时间',
+					sortable: true
+				},
+				{
+					field : 'vterelapse', 
+					title : '是否有VTE事件复发',
+					sortable: true
+				},
+				{
+					field : 'malignanttumor', 
+					title : '恶性肿瘤',
+					sortable: true
+				},
+				{
+					field : 'specifictumor', 
+					title : '具体肿瘤诊断',
+					sortable: true
+				},
+				{
+					field : 'malignanttumordate', 
+					title : '诊断时间',
+					sortable: true
+				},
+				{
+					field : 'splenectomy', 
+					title : '脾切除',
+					sortable: true
+				},
+				{
+					field : 'splenectormydate', 
+					title : '脾切除手术时间',
+					sortable: true
+				},
+				{
+					field : 'pacemaker', 
+					title : '起搏器植入',
+					sortable: true
+				},
+				{
+					field : 'pacemakerdate', 
+					title : '起搏器植入时间',
+					sortable: true
+				},
+				{
+					field : 'atrialhistory', 
+					title : '脑室心房分流手术',
+					sortable: true
+				},
+				{
+					field : 'atrialhistorydate', 
+					title : '手术时间',
+					sortable: true
+				},
+				{
+					field : 'levv', 
+					title : '下肢静脉曲张',
+					sortable: true
+				},
+				{
+					field : 'levvdate', 
+					title : '下肢静脉曲张诊断时间',
+					sortable: true
+				},
+				{
+					field : 'ibd', 
+					title : '炎症性肠病',
+					sortable: true
+				},
+				{
+					field : 'ibddiagnosis', 
+					title : '炎症性肠病具体诊断',
+					sortable: true
+				},
+				{
+					field : 'ibddate', 
+					title : '炎症性肠病诊断时间',
+					sortable: true
+				},
+				{
+					field : 'connectivetissue', 
+					title : '结缔组织病',
+					sortable: true
+				},
+				{
+					field : 'aas', 
+					title : '抗磷脂抗体综合征',
+					sortable: true
+				},
+				{
+					field : 'la', 
+					title : '狼疮抗凝物（LA）',
+					sortable: true
+				},
+				{
+					field : 'aclIgg', 
+					title : 'ACL IgG',
+					sortable: true
+				},
+				{
+					field : 'aclIgm', 
+					title : 'ACL IgM',
+					sortable: true
+				},
+				{
+					field : 'lgg', 
+					title : 'β2GP1 IgG',
+					sortable: true
+				},
+				{
+					field : 'lgm', 
+					title : 'β2GP1 IgM',
+					sortable: true
+				},
+				{
+					field : 'sie', 
+					title : '系统性红斑狼疮',
+					sortable: true
+				},
+				{
+					field : 'sjogrens', 
+					title : '干燥综合征',
+					sortable: true
+				},
+				{
+					field : 'ssclerosis', 
+					title : '系统性硬化症',
+					sortable: true
+				},
+				{
+					field : 'mctd', 
+					title : '混合性结缔组织病',
+					sortable: true
+				},
+				{
+					field : 'rarthritis', 
+					title : '类风湿性关节炎',
+					sortable: true
+				},
+				{
+					field : 'uctd', 
+					title : '未分化结缔组织病',
+					sortable: true
+				},
+				{
+					field : 'octd', 
+					title : '其他结缔组织病',
+					sortable: true
+				},
+				{
+					field : 'octdspecific', 
+					title : '具体其他结缔组织病',
+					sortable: true
+				},
+				{
+					field : 'hps', 
+					title : '高同型半胱氨酸（HCY）血症',
+					sortable: true
+				},
+				{
+					field : 'hcylevel', 
+					title : 'HCY水平',
+					sortable: true
+				},
+				{
+					field : 'maximum', 
+					title : '参考值上限',
+					sortable: true
+				},
+				{
+					field : 'threeitems', 
+					title : '易栓三项',
+					sortable: true
+				},
+				{
+					field : 'at', 
+					title : 'ATIII %',
+					sortable: true
+				},
+				{
+					field : 'proteins', 
+					title : '蛋白S',
+					sortable: true
+				},
+				{
+					field : 'proteinc', 
+					title : '蛋白C',
+					sortable: true
+				},
+				{
+					field : 'hat', 
+					title : '检测时或之前7日是否接受华法林抗凝治疗',
+					sortable: true
+				},
+				{
+					field : 'otherriskjudge', 
+					title : '其他危险因素',
+					sortable: true
+				},
+				{
+					field : 'otherrisk', 
+					title : '具体危险因素',
+					sortable: true
+				},
+				{
+					field : 'hypertension', 
+					title : '高血压',
+					sortable: true
+				},
+				{
+					field : 'coronaryheart', 
+					title : '冠心病',
+					sortable: true
+				},
+				{
+					field : 'revascularization', 
+					title : '冠心病是否已行血运重建',
+					sortable: true
+				},
+				{
+					field : 'diabetes', 
+					title : '糖尿病',
+					sortable: true
+				},
+				{
+					field : 'lhfailure', 
+					title : '左心衰竭',
+					sortable: true
+				},
+				{
+					field : 'lhfailurespecific', 
+					title : '左心衰竭具体',
+					sortable: true
+				},
+				{
+					field : 'renalinsufficiency', 
+					title : '慢性肾功能不全',
+					sortable: true
+				},
+				{
+					field : 'cerebralinfarction', 
+					title : '脑梗塞',
+					sortable: true
+				},
+				{
+					field : 'copd', 
+					title : '慢性阻塞性肺疾病',
+					sortable: true
+				},
+				{
+					field : 'congenitalheart', 
+					title : '先天性心脏病',
+					sortable: true
+				},
+				{
+					field : 'chdspecific', 
+					title : '先天性心脏病具体',
+					sortable: true
+				},
+				{
+					field : 'hypothyroidism', 
+					title : '甲状腺功能减低',
+					sortable: true
+				},
+				{
+					field : 'hyperthyroidism', 
+					title : '甲状腺功能亢进',
+					sortable: true
+				},
+				{
+					field : 'anemia', 
+					title : '贫血',
+					sortable: true
+				},
+				{
+					field : 'polycythemia', 
+					title : '红细胞增多症',
+					sortable: true
+				},
+				{
+					field : 'eosinophilia', 
+					title : '嗜酸粒细胞增多增多症',
+					sortable: true
+				},
+				{
+					field : 'plateletlower', 
+					title : '血小板减低',
+					sortable: true
+				},
+				{
+					field : 'plateletup', 
+					title : '血小板增多',
+					sortable: true
+				},
+				{
+					field : 'othercomplications', 
+					title : '其他重要合并疾病',
+					sortable: true
+				},
+				{
+					field : 'othercomplicationss', 
+					title : '具体疾病',
+					sortable: true
+				},
+				{
+					field : 'cteph', 
+					title : '确诊CTEPH时心功能分级',
+					sortable: true
+				},
+				{
+					field : 'sixmwd', 
+					title : '6MWD是否进行',
+					sortable: true
+				},
+				{
+					field : 'noreason1', 
+					title : '6MWD未进行原因',
+					sortable: true
+				},
+				{
+					field : 'walking', 
+					title : '步行距离（m）',
+					sortable: true
+				},
+				{
+					field : 'respiratory', 
+					title : '呼吸功能',
+					sortable: true
+				},
+				{
+					field : 'vcmax', 
+					title : 'VC MAX (%)',
+					sortable: true
+				},
+				{
+					field : 'tlc', 
+					title : 'TLC (%)',
+					sortable: true
+				},
+				{
+					field : 'rv', 
+					title : 'RV(%)',
+					sortable: true
+				},
+				{
+					field : 'rvtlc', 
+					title : 'RV/TLC (%)',
+					sortable: true
+				},
+				{
+					field : 'fev1', 
+					title : 'FEV1 (%)实/预',
+					sortable: true
+				},
+				{
+					field : 'fev1fvc', 
+					title : 'FEV1/FVC (%)实测',
+					sortable: true
+				},
+				{
+					field : 'fef', 
+					title : 'FEF25-75 (%)',
+					sortable: true
+				},
+				{
+					field : 'tlcosb', 
+					title : 'TLCO SB (%)',
+					sortable: true
+				},
+				{
+					field : 'tlcova', 
+					title : 'TLCO/VA (%)',
+					sortable: true
+				},
+				{
+					field : 'cet', 
+					title : '心肺运动试验',
+					sortable: true
+				},
+				{
+					field : 'heartmri', 
+					title : '心脏MRI',
+					sortable: true
+				},
+				{
+					field : 'ppi', 
+					title : '肺灌注显像',
+					sortable: true
+				},
+				{
+					field : 'ctpat', 
+					title : 'CT肺动脉增强',
+					sortable: true
+				},
+				{
+					field : 'mripae', 
+					title : 'MRI肺动脉增强',
+					sortable: true
+				},
+				{
+					field : 'cmri', 
+					title : '',
+					sortable: true
+				},
+				{
+					field : 'rhc', 
+					title : '右心导管',
+					sortable: true
+				},
+				{
+					field : 'noreason2', 
+					title : '右心导管未做原因',
+					sortable: true
+				},
+				{
+					field : 'otherreason', 
+					title : '其他原因',
+					sortable: true
+				},
+				{
+					field : 'pa', 
+					title : '肺动脉造影',
+					sortable: true
+				},
+				{
+					field : 'firstcatheter', 
+					title : '首次导管时间',
+					sortable: true
+				},
+				{
+					field : 'hr', 
+					title : 'HR, bpm',
+					sortable: true
+				},
+				{
+					field : 'bpshrink', 
+					title : 'BP收缩(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'bprelaxation', 
+					title : 'BP舒张(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'bpave', 
+					title : 'BP平均(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'rap', 
+					title : 'RAP',
+					sortable: true
+				},
+				{
+					field : 'rapshrink', 
+					title : 'RAP收缩(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'raprelaxation1', 
+					title : 'RAP舒张(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'rapave', 
+					title : 'RAP平均(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'pap', 
+					title : 'PAP',
+					sortable: true
+				},
+				{
+					field : 'papshrink', 
+					title : 'PAP收缩(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'raprelaxation2', 
+					title : 'PAP舒张(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'papave', 
+					title : 'PAP平均(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'pawp', 
+					title : 'PAWP',
+					sortable: true
+				},
+				{
+					field : 'pawpshrink', 
+					title : 'PAWP收缩(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'pawprelaxation', 
+					title : 'PAWP舒张(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'pawpave', 
+					title : 'PAWP平均(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'co', 
+					title : 'CO (Qp), L/min',
+					sortable: true
+				},
+				{
+					field : 'comethod', 
+					title : 'CO测定方法',
+					sortable: true
+				},
+				{
+					field : 'ci', 
+					title : 'CI, L/min/m2',
+					sortable: true
+				},
+				{
+					field : 'pvr', 
+					title : 'PVR, Wood U',
+					sortable: true
+				},
+				{
+					field : 'lvedd', 
+					title : '左室舒张末内径LVEDD (mm)',
+					sortable: true
+				},
+				{
+					field : 'lvef', 
+					title : '左室射血分数LVEF (%)',
+					sortable: true
+				},
+				{
+					field : 'pasp', 
+					title : '超声估测肺动脉收缩压PASP(mm Hg)',
+					sortable: true
+				},
+				{
+					field : 'tapse', 
+					title : '三尖瓣环收缩期位移 TAPSE（mm）',
+					sortable: true
+				},
+				{
+					field : 'pe', 
+					title : '心包积液',
+					sortable: true
+				},
+				{
+					field : 'bloodgroup', 
+					title : '血型',
+					sortable: true
+				},
+				{
+					field : 'ddimer', 
+					title : 'D-二聚体(μg/mL)',
+					sortable: true
+				},
+				{
+					field : 'nt', 
+					title : 'NT-proBNP',
+					sortable: true
+				},
+				{
+					field : 'ntnumber', 
+					title : 'NT-proBNP pg/ml',
+					sortable: true
+				},
+				{
+					field : 'ast', 
+					title : 'AST（IU/ml）',
+					sortable: true
+				},
+				{
+					field : 'alt', 
+					title : 'ALT（IU/ml）',
+					sortable: true
+				},
+				{
+					field : 'tbil', 
+					title : 'Tbil（μmol/L）',
+					sortable: true
+				},
+				{
+					field : 'dbil', 
+					title : 'Dbil（μmol/L）',
+					sortable: true
+				},
+				{
+					field : 'cr', 
+					title : '血Cr（μmol/L）',
+					sortable: true
+				},
+				{
+					field : 'bloodgas', 
+					title : '动脉血气',
+					sortable: true
+				},
+				{
+					field : 'abgt', 
+					title : '动脉血气类型',
+					sortable: true
+				},
+				{
+					field : 'pco', 
+					title : 'PCO2 mmHg',
+					sortable: true
+				},
+				{
+					field : 'po', 
+					title : 'PO2 mmHg',
+					sortable: true
+				},
+				{
+					field : 'sao', 
+					title : 'SaO2 %',
+					sortable: true
+				},
+				{
+					field : 'paa', 
+					title : 'P(A-a) mmHg',
+					sortable: true
+				},
+				{
+					field : 'anticoagulant', 
+					title : '抗凝治疗',
+					sortable: true
+				},
+				{
+					field : 'drug1', 
+					title : '抗凝治疗药物',
+					sortable: true
+				},
+				{
+					field : 'otherdrug', 
+					title : '抗凝治疗其他药物',
+					sortable: true
+				},
+				{
+					field : 'antiplatelet', 
+					title : '抗血小板治疗',
+					sortable: true
+				},
+				{
+					field : 'drug5', 
+					title : '抗血小板治疗药物',
+					sortable: true
+				},
+				{
+					field : 'otherdrug2', 
+					title : '抗血小板治疗其他药物',
+					sortable: true
+				},
+				{
+					field : 'targeting', 
+					title : '靶向治疗',
+					sortable: true
+				},
+				{
+					field : 'laxg', 
+					title : '利奥西呱',
+					sortable: true
+				},
+				{
+					field : 'fivepi', 
+					title : '5型磷酸二酯酶抑制剂',
+					sortable: true
+				},
+				{
+					field : 'drug2', 
+					title : '5型磷酸二酯酶抑制剂药物',
+					sortable: true
+				},
+				{
+					field : 'era', 
+					title : '内皮素受体拮抗剂',
+					sortable: true
+				},
+				{
+					field : 'drug3', 
+					title : '内皮素受体拮抗剂药物',
+					sortable: true
+				},
+				{
+					field : 'prostacyclin', 
+					title : '前列环素',
+					sortable: true
+				},
+				{
+					field : 'drug4', 
+					title : '前列环素药物',
+					sortable: true
+				},
+				{
+					field : 'exfoliation', 
+					title : '肺动脉内膜剥脱术',
+					sortable: true
+				},
+				{
+					field : 'exfoliationdate', 
+					title : '肺动脉内膜剥脱术时间',
+					sortable: true
+				},
+				{
+					field : 'angioplasty', 
+					title : '球囊肺动脉成形术',
+					sortable: true
+				},
+				{
+					field : 'angioplastyfdate', 
+					title : '球囊肺动脉成形术时间',
+					sortable: true
+				},
+				{
+					field : 'death', 
+					title : '是否死亡',
+					sortable: true
+				},
+				{
+					field : 'deathreason', 
+					title : '死亡原因',
+					sortable: true
+				},
+				{
+					field : 'createBy', 
+					title : '创建者',
+					sortable: true
+				},
+				{
+					field : 'createTime', 
+					title : '创建时间',
+					sortable: true
+				},
+				{
+					field : 'updateBy', 
+					title : '修改人',
+					sortable: true
+				},
+				{
+					field : 'updateTime', 
+					title : '修改时间',
+					sortable: true
+				},
+				{
+					field : 'ts', 
+					title : '时间戳',
+					sortable: true
+				},
+				{
+					field : 'dr', 
+					title : '删除标记',
+					sortable: true
+				},
+				{
+					field : 'svo2', 
+					title : 'SvO2 (肺动脉氧饱和度), %',
+					sortable: true
+				},
+		        {
+		            title: '操作',
+		            align: 'center',
+		            formatter: function(value, row, index) {
+		            	var actions = [];
+		            	actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
+						return actions.join('');
+		            }
+		        }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

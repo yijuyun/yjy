@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CtephMapper">
+    
+    <resultMap type="SysCteph" id="CtephResult">
+        <result property="id"    column="id"    />
+        <result property="code"    column="code"    />
+        <result property="department"    column="department"    />
+        <result property="maker"    column="maker"    />
+        <result property="patientName"    column="patient_name"    />
+        <result property="patientSex"    column="patient_sex"    />
+        <result property="patientAddress"    column="patient_address"    />
+        <result property="birthday"    column="birthday"    />
+        <result property="height"    column="height"    />
+        <result property="weight"    column="weight"    />
+        <result property="firsttime"    column="firsttime"    />
+        <result property="specialsigns"    column="specialsigns"    />
+        <result property="vtehistory"    column="vtehistory"    />
+        <result property="ape"    column="ape"    />
+        <result property="ledvt"    column="ledvt"    />
+        <result property="otherthrombus"    column="otherthrombus"    />
+        <result property="firstvtetime"    column="firstvtetime"    />
+        <result property="vterelapse"    column="vterelapse"    />
+        <result property="malignanttumor"    column="malignanttumor"    />
+        <result property="specifictumor"    column="specifictumor"    />
+        <result property="malignanttumordate"    column="malignanttumordate"    />
+        <result property="splenectomy"    column="splenectomy"    />
+        <result property="splenectormydate"    column="splenectormydate"    />
+        <result property="pacemaker"    column="pacemaker"    />
+        <result property="pacemakerdate"    column="pacemakerdate"    />
+        <result property="atrialhistory"    column="atrialhistory"    />
+        <result property="atrialhistorydate"    column="atrialhistorydate"    />
+        <result property="levv"    column="levv"    />
+        <result property="levvdate"    column="levvdate"    />
+        <result property="ibd"    column="ibd"    />
+        <result property="ibddiagnosis"    column="ibddiagnosis"    />
+        <result property="ibddate"    column="ibddate"    />
+        <result property="connectivetissue"    column="connectivetissue"    />
+        <result property="aas"    column="aas"    />
+        <result property="la"    column="la"    />
+        <result property="aclIgg"    column="acL_igg"    />
+        <result property="aclIgm"    column="acl_igm"    />
+        <result property="lgg"    column="lgg"    />
+        <result property="lgm"    column="lgm"    />
+        <result property="sie"    column="sie"    />
+        <result property="sjogrens"    column="sjogrens"    />
+        <result property="ssclerosis"    column="ssclerosis"    />
+        <result property="mctd"    column="mctd"    />
+        <result property="rarthritis"    column="rarthritis"    />
+        <result property="uctd"    column="uctd"    />
+        <result property="octd"    column="octd"    />
+        <result property="octdspecific"    column="octdspecific"    />
+        <result property="hps"    column="hps"    />
+        <result property="hcylevel"    column="hcylevel"    />
+        <result property="maximum"    column="maximum"    />
+        <result property="threeitems"    column="threeitems"    />
+        <result property="at"    column="at"    />
+        <result property="proteins"    column="proteins"    />
+        <result property="proteinc"    column="proteinc"    />
+        <result property="hat"    column="hat"    />
+        <result property="otherriskjudge"    column="otherriskjudge"    />
+        <result property="otherrisk"    column="otherrisk"    />
+        <result property="hypertension"    column="hypertension"    />
+        <result property="coronaryheart"    column="coronaryheart"    />
+        <result property="revascularization"    column="revascularization"    />
+        <result property="diabetes"    column="diabetes"    />
+        <result property="lhfailure"    column="lhfailure"    />
+        <result property="lhfailurespecific"    column="lhfailurespecific"    />
+        <result property="renalinsufficiency"    column="renalinsufficiency"    />
+        <result property="cerebralinfarction"    column="cerebralinfarction"    />
+        <result property="copd"    column="copd"    />
+        <result property="congenitalheart"    column="congenitalheart"    />
+        <result property="chdspecific"    column="chdspecific"    />
+        <result property="hypothyroidism"    column="hypothyroidism"    />
+        <result property="hyperthyroidism"    column="hyperthyroidism"    />
+        <result property="anemia"    column="anemia"    />
+        <result property="polycythemia"    column="polycythemia"    />
+        <result property="eosinophilia"    column="eosinophilia"    />
+        <result property="plateletlower"    column="plateletlower"    />
+        <result property="plateletup"    column="plateletup"    />
+        <result property="othercomplications"    column="othercomplications"    />
+        <result property="othercomplicationss"    column="othercomplicationss"    />
+        <result property="cteph"    column="cteph"    />
+        <result property="sixmwd"    column="sixmwd"    />
+        <result property="noreason1"    column="noreason1"    />
+        <result property="walking"    column="walking"    />
+        <result property="respiratory"    column="respiratory"    />
+        <result property="vcmax"    column="vcmax"    />
+        <result property="tlc"    column="tlc"    />
+        <result property="rv"    column="rv"    />
+        <result property="rvtlc"    column="rvtlc"    />
+        <result property="fev1"    column="fev1"    />
+        <result property="fev1fvc"    column="fev1fvc"    />
+        <result property="fef"    column="fef"    />
+        <result property="tlcosb"    column="tlcosb"    />
+        <result property="tlcova"    column="tlcova"    />
+        <result property="cet"    column="cet"    />
+        <result property="heartmri"    column="heartmri"    />
+        <result property="ppi"    column="ppi"    />
+        <result property="ctpat"    column="ctpat"    />
+        <result property="mripae"    column="mripae"    />
+        <result property="cmri"    column="cmri"    />
+        <result property="rhc"    column="rhc"    />
+        <result property="noreason2"    column="noreason2"    />
+        <result property="otherreason"    column="otherreason"    />
+        <result property="pa"    column="pa"    />
+        <result property="firstcatheter"    column="firstcatheter"    />
+        <result property="hr"    column="hr"    />
+        <result property="bpshrink"    column="bpshrink"    />
+        <result property="bprelaxation"    column="bprelaxation"    />
+        <result property="bpave"    column="bpave"    />
+        <result property="rap"    column="rap"    />
+        <result property="rapshrink"    column="rapshrink"    />
+        <result property="raprelaxation1"    column="raprelaxation1"    />
+        <result property="rapave"    column="rapave"    />
+        <result property="pap"    column="pap"    />
+        <result property="papshrink"    column="papshrink"    />
+        <result property="raprelaxation2"    column="raprelaxation2"    />
+        <result property="papave"    column="papave"    />
+        <result property="pawp"    column="pawp"    />
+        <result property="pawpshrink"    column="pawpshrink"    />
+        <result property="pawprelaxation"    column="pawprelaxation"    />
+        <result property="pawpave"    column="pawpave"    />
+        <result property="co"    column="co"    />
+        <result property="comethod"    column="comethod"    />
+        <result property="ci"    column="ci"    />
+        <result property="pvr"    column="pvr"    />
+        <result property="lvedd"    column="lvedd"    />
+        <result property="lvef"    column="lvef"    />
+        <result property="pasp"    column="pasp"    />
+        <result property="tapse"    column="tapse"    />
+        <result property="pe"    column="pe"    />
+        <result property="bloodgroup"    column="bloodgroup"    />
+        <result property="ddimer"    column="ddimer"    />
+        <result property="nt"    column="nt"    />
+        <result property="ntnumber"    column="ntnumber"    />
+        <result property="ast"    column="ast"    />
+        <result property="alt"    column="alt"    />
+        <result property="tbil"    column="tbil"    />
+        <result property="dbil"    column="dbil"    />
+        <result property="cr"    column="cr"    />
+        <result property="bloodgas"    column="bloodgas"    />
+        <result property="abgt"    column="abgt"    />
+        <result property="pco"    column="pco"    />
+        <result property="po"    column="po"    />
+        <result property="sao"    column="sao"    />
+        <result property="paa"    column="paa"    />
+        <result property="anticoagulant"    column="anticoagulant"    />
+        <result property="drug1"    column="drug1"    />
+        <result property="otherdrug"    column="otherdrug"    />
+        <result property="antiplatelet"    column="antiplatelet"    />
+        <result property="drug5"    column="drug5"    />
+        <result property="otherdrug2"    column="otherdrug2"    />
+        <result property="targeting"    column="targeting"    />
+        <result property="laxg"    column="laxg"    />
+        <result property="fivepi"    column="fivepi"    />
+        <result property="drug2"    column="drug2"    />
+        <result property="era"    column="era"    />
+        <result property="drug3"    column="drug3"    />
+        <result property="prostacyclin"    column="prostacyclin"    />
+        <result property="drug4"    column="drug4"    />
+        <result property="exfoliation"    column="exfoliation"    />
+        <result property="exfoliationdate"    column="exfoliationdate"    />
+        <result property="angioplasty"    column="angioplasty"    />
+        <result property="angioplastyfdate"    column="angioplastyfdate"    />
+        <result property="death"    column="death"    />
+        <result property="deathreason"    column="deathreason"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="ts"    column="ts"    />
+        <result property="dr"    column="dr"    />
+        <result property="svo2"    column="svo2"    />
+    </resultMap>
+	
+	<sql id="selectCtephVo">
+        select id, code, department, maker, patient_name, patient_sex, patient_address, birthday, height, weight, firsttime, specialsigns, vtehistory, ape, ledvt, otherthrombus, firstvtetime, vterelapse, malignanttumor, specifictumor, malignanttumordate, splenectomy, splenectormydate, pacemaker, pacemakerdate, atrialhistory, atrialhistorydate, levv, levvdate, ibd, ibddiagnosis, ibddate, connectivetissue, aas, la, acL_igg, acl_igm, lgg, lgm, sie, sjogrens, ssclerosis, mctd, rarthritis, uctd, octd, octdspecific, hps, hcylevel, maximum, threeitems, at, proteins, proteinc, hat, otherriskjudge, otherrisk, hypertension, coronaryheart, revascularization, diabetes, lhfailure, lhfailurespecific, renalinsufficiency, cerebralinfarction, copd, congenitalheart, chdspecific, hypothyroidism, hyperthyroidism, anemia, polycythemia, eosinophilia, plateletlower, plateletup, othercomplications, othercomplicationss, cteph, sixmwd, noreason1, walking, respiratory, vcmax, tlc, rv, rvtlc, fev1, fev1fvc, fef, tlcosb, tlcova, cet, heartmri, ppi, ctpat, mripae, cmri, rhc, noreason2, otherreason, pa, firstcatheter, hr, bpshrink, bprelaxation, bpave, rap, rapshrink, raprelaxation1, rapave, pap, papshrink, raprelaxation2, papave, pawp, pawpshrink, pawprelaxation, pawpave, co, comethod, ci, pvr, lvedd, lvef, pasp, tapse, pe, bloodgroup, ddimer, nt, ntnumber, ast, alt, tbil, dbil, cr, bloodgas, abgt, pco, po, sao, paa, anticoagulant, drug1, otherdrug, antiplatelet, drug5, otherdrug2, targeting, laxg, fivepi, drug2, era, drug3, prostacyclin, drug4, exfoliation, exfoliationdate, angioplasty, angioplastyfdate, death, deathreason, create_by, create_time, update_by, update_time, ts, dr, svo2 from sys_cteph
+    </sql>
+	
+    <select id="selectCtephList" parameterType="SysCteph" resultMap="CtephResult">
+        <include refid="selectCtephVo"/>
+        <where>  
+            <if test="id != null "> and id = #{id}</if>
+             <if test="code != null  and code != '' "> and code = #{code}</if>
+             <if test="department != null "> and department = #{department}</if>
+             <if test="maker != null "> and maker = #{maker}</if>
+             <if test="patientName != null  and patientName != '' "> and patient_name = #{patientName}</if>
+             <if test="patientSex != null "> and patient_sex = #{patientSex}</if>
+             <if test="patientAddress != null  and patientAddress != '' "> and patient_address = #{patientAddress}</if>
+             <if test="birthday != null "> and birthday = #{birthday}</if>
+             <if test="height != null "> and height = #{height}</if>
+             <if test="weight != null "> and weight = #{weight}</if>
+             <if test="firsttime != null "> and firsttime = #{firsttime}</if>
+             <if test="specialsigns != null "> and specialsigns = #{specialsigns}</if>
+             <if test="vtehistory != null "> and vtehistory = #{vtehistory}</if>
+             <if test="ape != null "> and ape = #{ape}</if>
+             <if test="ledvt != null "> and ledvt = #{ledvt}</if>
+             <if test="otherthrombus != null  and otherthrombus != '' "> and otherthrombus = #{otherthrombus}</if>
+             <if test="firstvtetime != null "> and firstvtetime = #{firstvtetime}</if>
+             <if test="vterelapse != null "> and vterelapse = #{vterelapse}</if>
+             <if test="malignanttumor != null "> and malignanttumor = #{malignanttumor}</if>
+             <if test="specifictumor != null  and specifictumor != '' "> and specifictumor = #{specifictumor}</if>
+             <if test="malignanttumordate != null "> and malignanttumordate = #{malignanttumordate}</if>
+             <if test="splenectomy != null "> and splenectomy = #{splenectomy}</if>
+             <if test="splenectormydate != null "> and splenectormydate = #{splenectormydate}</if>
+             <if test="pacemaker != null "> and pacemaker = #{pacemaker}</if>
+             <if test="pacemakerdate != null "> and pacemakerdate = #{pacemakerdate}</if>
+             <if test="atrialhistory != null "> and atrialhistory = #{atrialhistory}</if>
+             <if test="atrialhistorydate != null "> and atrialhistorydate = #{atrialhistorydate}</if>
+             <if test="levv != null "> and levv = #{levv}</if>
+             <if test="levvdate != null "> and levvdate = #{levvdate}</if>
+             <if test="ibd != null "> and ibd = #{ibd}</if>
+             <if test="ibddiagnosis != null  and ibddiagnosis != '' "> and ibddiagnosis = #{ibddiagnosis}</if>
+             <if test="ibddate != null "> and ibddate = #{ibddate}</if>
+             <if test="connectivetissue != null "> and connectivetissue = #{connectivetissue}</if>
+             <if test="aas != null "> and aas = #{aas}</if>
+             <if test="la != null "> and la = #{la}</if>
+             <if test="aclIgg != null "> and acL_igg = #{aclIgg}</if>
+             <if test="aclIgm != null "> and acl_igm = #{aclIgm}</if>
+             <if test="lgg != null "> and lgg = #{lgg}</if>
+             <if test="lgm != null "> and lgm = #{lgm}</if>
+             <if test="sie != null "> and sie = #{sie}</if>
+             <if test="sjogrens != null "> and sjogrens = #{sjogrens}</if>
+             <if test="ssclerosis != null "> and ssclerosis = #{ssclerosis}</if>
+             <if test="mctd != null "> and mctd = #{mctd}</if>
+             <if test="rarthritis != null "> and rarthritis = #{rarthritis}</if>
+             <if test="uctd != null "> and uctd = #{uctd}</if>
+             <if test="octd != null "> and octd = #{octd}</if>
+             <if test="octdspecific != null  and octdspecific != '' "> and octdspecific = #{octdspecific}</if>
+             <if test="hps != null "> and hps = #{hps}</if>
+             <if test="hcylevel != null "> and hcylevel = #{hcylevel}</if>
+             <if test="maximum != null "> and maximum = #{maximum}</if>
+             <if test="threeitems != null "> and threeitems = #{threeitems}</if>
+             <if test="at != null "> and at = #{at}</if>
+             <if test="proteins != null "> and proteins = #{proteins}</if>
+             <if test="proteinc != null "> and proteinc = #{proteinc}</if>
+             <if test="hat != null "> and hat = #{hat}</if>
+             <if test="otherriskjudge != null "> and otherriskjudge = #{otherriskjudge}</if>
+             <if test="otherrisk != null  and otherrisk != '' "> and otherrisk = #{otherrisk}</if>
+             <if test="hypertension != null "> and hypertension = #{hypertension}</if>
+             <if test="coronaryheart != null "> and coronaryheart = #{coronaryheart}</if>
+             <if test="revascularization != null "> and revascularization = #{revascularization}</if>
+             <if test="diabetes != null "> and diabetes = #{diabetes}</if>
+             <if test="lhfailure != null "> and lhfailure = #{lhfailure}</if>
+             <if test="lhfailurespecific != null "> and lhfailurespecific = #{lhfailurespecific}</if>
+             <if test="renalinsufficiency != null "> and renalinsufficiency = #{renalinsufficiency}</if>
+             <if test="cerebralinfarction != null "> and cerebralinfarction = #{cerebralinfarction}</if>
+             <if test="copd != null "> and copd = #{copd}</if>
+             <if test="congenitalheart != null "> and congenitalheart = #{congenitalheart}</if>
+             <if test="chdspecific != null  and chdspecific != '' "> and chdspecific = #{chdspecific}</if>
+             <if test="hypothyroidism != null "> and hypothyroidism = #{hypothyroidism}</if>
+             <if test="hyperthyroidism != null "> and hyperthyroidism = #{hyperthyroidism}</if>
+             <if test="anemia != null "> and anemia = #{anemia}</if>
+             <if test="polycythemia != null "> and polycythemia = #{polycythemia}</if>
+             <if test="eosinophilia != null "> and eosinophilia = #{eosinophilia}</if>
+             <if test="plateletlower != null "> and plateletlower = #{plateletlower}</if>
+             <if test="plateletup != null "> and plateletup = #{plateletup}</if>
+             <if test="othercomplications != null "> and othercomplications = #{othercomplications}</if>
+             <if test="othercomplicationss != null  and othercomplicationss != '' "> and othercomplicationss = #{othercomplicationss}</if>
+             <if test="cteph != null "> and cteph = #{cteph}</if>
+             <if test="sixmwd != null "> and sixmwd = #{sixmwd}</if>
+             <if test="noreason1 != null "> and noreason1 = #{noreason1}</if>
+             <if test="walking != null "> and walking = #{walking}</if>
+             <if test="respiratory != null "> and respiratory = #{respiratory}</if>
+             <if test="vcmax != null "> and vcmax = #{vcmax}</if>
+             <if test="tlc != null "> and tlc = #{tlc}</if>
+             <if test="rv != null "> and rv = #{rv}</if>
+             <if test="rvtlc != null "> and rvtlc = #{rvtlc}</if>
+             <if test="fev1 != null "> and fev1 = #{fev1}</if>
+             <if test="fev1fvc != null "> and fev1fvc = #{fev1fvc}</if>
+             <if test="fef != null "> and fef = #{fef}</if>
+             <if test="tlcosb != null "> and tlcosb = #{tlcosb}</if>
+             <if test="tlcova != null "> and tlcova = #{tlcova}</if>
+             <if test="cet != null "> and cet = #{cet}</if>
+             <if test="heartmri != null "> and heartmri = #{heartmri}</if>
+             <if test="ppi != null "> and ppi = #{ppi}</if>
+             <if test="ctpat != null "> and ctpat = #{ctpat}</if>
+             <if test="mripae != null "> and mripae = #{mripae}</if>
+             <if test="cmri != null "> and cmri = #{cmri}</if>
+             <if test="rhc != null "> and rhc = #{rhc}</if>
+             <if test="noreason2 != null "> and noreason2 = #{noreason2}</if>
+             <if test="otherreason != null  and otherreason != '' "> and otherreason = #{otherreason}</if>
+             <if test="pa != null "> and pa = #{pa}</if>
+             <if test="firstcatheter != null "> and firstcatheter = #{firstcatheter}</if>
+             <if test="hr != null "> and hr = #{hr}</if>
+             <if test="bpshrink != null "> and bpshrink = #{bpshrink}</if>
+             <if test="bprelaxation != null "> and bprelaxation = #{bprelaxation}</if>
+             <if test="bpave != null "> and bpave = #{bpave}</if>
+             <if test="rap != null "> and rap = #{rap}</if>
+             <if test="rapshrink != null "> and rapshrink = #{rapshrink}</if>
+             <if test="raprelaxation1 != null "> and raprelaxation1 = #{raprelaxation1}</if>
+             <if test="rapave != null "> and rapave = #{rapave}</if>
+             <if test="pap != null "> and pap = #{pap}</if>
+             <if test="papshrink != null "> and papshrink = #{papshrink}</if>
+             <if test="raprelaxation2 != null "> and raprelaxation2 = #{raprelaxation2}</if>
+             <if test="papave != null "> and papave = #{papave}</if>
+             <if test="pawp != null "> and pawp = #{pawp}</if>
+             <if test="pawpshrink != null "> and pawpshrink = #{pawpshrink}</if>
+             <if test="pawprelaxation != null "> and pawprelaxation = #{pawprelaxation}</if>
+             <if test="pawpave != null "> and pawpave = #{pawpave}</if>
+             <if test="co != null "> and co = #{co}</if>
+             <if test="comethod != null "> and comethod = #{comethod}</if>
+             <if test="ci != null "> and ci = #{ci}</if>
+             <if test="pvr != null "> and pvr = #{pvr}</if>
+             <if test="lvedd != null "> and lvedd = #{lvedd}</if>
+             <if test="lvef != null "> and lvef = #{lvef}</if>
+             <if test="pasp != null "> and pasp = #{pasp}</if>
+             <if test="tapse != null "> and tapse = #{tapse}</if>
+             <if test="pe != null "> and pe = #{pe}</if>
+             <if test="bloodgroup != null "> and bloodgroup = #{bloodgroup}</if>
+             <if test="ddimer != null "> and ddimer = #{ddimer}</if>
+             <if test="nt != null "> and nt = #{nt}</if>
+             <if test="ntnumber != null "> and ntnumber = #{ntnumber}</if>
+             <if test="ast != null "> and ast = #{ast}</if>
+             <if test="alt != null "> and alt = #{alt}</if>
+             <if test="tbil != null "> and tbil = #{tbil}</if>
+             <if test="dbil != null "> and dbil = #{dbil}</if>
+             <if test="cr != null "> and cr = #{cr}</if>
+             <if test="bloodgas != null "> and bloodgas = #{bloodgas}</if>
+             <if test="abgt != null "> and abgt = #{abgt}</if>
+             <if test="pco != null "> and pco = #{pco}</if>
+             <if test="po != null "> and po = #{po}</if>
+             <if test="sao != null "> and sao = #{sao}</if>
+             <if test="paa != null "> and paa = #{paa}</if>
+             <if test="anticoagulant != null "> and anticoagulant = #{anticoagulant}</if>
+             <if test="drug1 != null "> and drug1 = #{drug1}</if>
+             <if test="otherdrug != null  and otherdrug != '' "> and otherdrug = #{otherdrug}</if>
+             <if test="antiplatelet != null "> and antiplatelet = #{antiplatelet}</if>
+             <if test="drug5 != null "> and drug5 = #{drug5}</if>
+             <if test="otherdrug2 != null  and otherdrug2 != '' "> and otherdrug2 = #{otherdrug2}</if>
+             <if test="targeting != null "> and targeting = #{targeting}</if>
+             <if test="laxg != null "> and laxg = #{laxg}</if>
+             <if test="fivepi != null "> and fivepi = #{fivepi}</if>
+             <if test="drug2 != null "> and drug2 = #{drug2}</if>
+             <if test="era != null "> and era = #{era}</if>
+             <if test="drug3 != null "> and drug3 = #{drug3}</if>
+             <if test="prostacyclin != null "> and prostacyclin = #{prostacyclin}</if>
+             <if test="drug4 != null "> and drug4 = #{drug4}</if>
+             <if test="exfoliation != null "> and exfoliation = #{exfoliation}</if>
+             <if test="exfoliationdate != null "> and exfoliationdate = #{exfoliationdate}</if>
+             <if test="angioplasty != null "> and angioplasty = #{angioplasty}</if>
+             <if test="angioplastyfdate != null "> and angioplastyfdate = #{angioplastyfdate}</if>
+             <if test="death != null "> and death = #{death}</if>
+             <if test="deathreason != null "> and deathreason = #{deathreason}</if>
+             <if test="createBy != null  and createBy != '' "> and create_by = #{createBy}</if>
+             <if test="createTime != null "> and create_time = #{createTime}</if>
+             <if test="updateBy != null  and updateBy != '' "> and update_by = #{updateBy}</if>
+             <if test="updateTime != null "> and update_time = #{updateTime}</if>
+             <if test="ts != null "> and ts = #{ts}</if>
+             <if test="dr != null "> and dr = #{dr}</if>
+             <if test="svo2 != null "> and svo2 = #{svo2}</if>
+         </where>
+    </select>
+    
+    <select id="selectCtephById" parameterType="Integer" resultMap="CtephResult">
+        <include refid="selectCtephVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertCteph" parameterType="SysCteph" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_cteph
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="code != null  and code != ''  ">code,</if>
+			<if test="department != null  ">department,</if>
+			<if test="maker != null  ">maker,</if>
+			<if test="patientName != null  and patientName != ''  ">patient_name,</if>
+			<if test="patientSex != null  ">patient_sex,</if>
+			<if test="patientAddress != null  and patientAddress != ''  ">patient_address,</if>
+			<if test="birthday != null  ">birthday,</if>
+			<if test="height != null  ">height,</if>
+			<if test="weight != null  ">weight,</if>
+			<if test="firsttime != null  ">firsttime,</if>
+			<if test="specialsigns != null  ">specialsigns,</if>
+			<if test="vtehistory != null  ">vtehistory,</if>
+			<if test="ape != null  ">ape,</if>
+			<if test="ledvt != null  ">ledvt,</if>
+			<if test="otherthrombus != null  and otherthrombus != ''  ">otherthrombus,</if>
+			<if test="firstvtetime != null  ">firstvtetime,</if>
+			<if test="vterelapse != null  ">vterelapse,</if>
+			<if test="malignanttumor != null  ">malignanttumor,</if>
+			<if test="specifictumor != null  and specifictumor != ''  ">specifictumor,</if>
+			<if test="malignanttumordate != null  ">malignanttumordate,</if>
+			<if test="splenectomy != null  ">splenectomy,</if>
+			<if test="splenectormydate != null  ">splenectormydate,</if>
+			<if test="pacemaker != null  ">pacemaker,</if>
+			<if test="pacemakerdate != null  ">pacemakerdate,</if>
+			<if test="atrialhistory != null  ">atrialhistory,</if>
+			<if test="atrialhistorydate != null  ">atrialhistorydate,</if>
+			<if test="levv != null  ">levv,</if>
+			<if test="levvdate != null  ">levvdate,</if>
+			<if test="ibd != null  ">ibd,</if>
+			<if test="ibddiagnosis != null  and ibddiagnosis != ''  ">ibddiagnosis,</if>
+			<if test="ibddate != null  ">ibddate,</if>
+			<if test="connectivetissue != null  ">connectivetissue,</if>
+			<if test="aas != null  ">aas,</if>
+			<if test="la != null  ">la,</if>
+			<if test="aclIgg != null  ">acL_igg,</if>
+			<if test="aclIgm != null  ">acl_igm,</if>
+			<if test="lgg != null  ">lgg,</if>
+			<if test="lgm != null  ">lgm,</if>
+			<if test="sie != null  ">sie,</if>
+			<if test="sjogrens != null  ">sjogrens,</if>
+			<if test="ssclerosis != null  ">ssclerosis,</if>
+			<if test="mctd != null  ">mctd,</if>
+			<if test="rarthritis != null  ">rarthritis,</if>
+			<if test="uctd != null  ">uctd,</if>
+			<if test="octd != null  ">octd,</if>
+			<if test="octdspecific != null  and octdspecific != ''  ">octdspecific,</if>
+			<if test="hps != null  ">hps,</if>
+			<if test="hcylevel != null  ">hcylevel,</if>
+			<if test="maximum != null  ">maximum,</if>
+			<if test="threeitems != null  ">threeitems,</if>
+			<if test="at != null  ">at,</if>
+			<if test="proteins != null  ">proteins,</if>
+			<if test="proteinc != null  ">proteinc,</if>
+			<if test="hat != null  ">hat,</if>
+			<if test="otherriskjudge != null  ">otherriskjudge,</if>
+			<if test="otherrisk != null  and otherrisk != ''  ">otherrisk,</if>
+			<if test="hypertension != null  ">hypertension,</if>
+			<if test="coronaryheart != null  ">coronaryheart,</if>
+			<if test="revascularization != null  ">revascularization,</if>
+			<if test="diabetes != null  ">diabetes,</if>
+			<if test="lhfailure != null  ">lhfailure,</if>
+			<if test="lhfailurespecific != null  ">lhfailurespecific,</if>
+			<if test="renalinsufficiency != null  ">renalinsufficiency,</if>
+			<if test="cerebralinfarction != null  ">cerebralinfarction,</if>
+			<if test="copd != null  ">copd,</if>
+			<if test="congenitalheart != null  ">congenitalheart,</if>
+			<if test="chdspecific != null  and chdspecific != ''  ">chdspecific,</if>
+			<if test="hypothyroidism != null  ">hypothyroidism,</if>
+			<if test="hyperthyroidism != null  ">hyperthyroidism,</if>
+			<if test="anemia != null  ">anemia,</if>
+			<if test="polycythemia != null  ">polycythemia,</if>
+			<if test="eosinophilia != null  ">eosinophilia,</if>
+			<if test="plateletlower != null  ">plateletlower,</if>
+			<if test="plateletup != null  ">plateletup,</if>
+			<if test="othercomplications != null  ">othercomplications,</if>
+			<if test="othercomplicationss != null  and othercomplicationss != ''  ">othercomplicationss,</if>
+			<if test="cteph != null  ">cteph,</if>
+			<if test="sixmwd != null  ">sixmwd,</if>
+			<if test="noreason1 != null  ">noreason1,</if>
+			<if test="walking != null  ">walking,</if>
+			<if test="respiratory != null  ">respiratory,</if>
+			<if test="vcmax != null  ">vcmax,</if>
+			<if test="tlc != null  ">tlc,</if>
+			<if test="rv != null  ">rv,</if>
+			<if test="rvtlc != null  ">rvtlc,</if>
+			<if test="fev1 != null  ">fev1,</if>
+			<if test="fev1fvc != null  ">fev1fvc,</if>
+			<if test="fef != null  ">fef,</if>
+			<if test="tlcosb != null  ">tlcosb,</if>
+			<if test="tlcova != null  ">tlcova,</if>
+			<if test="cet != null  ">cet,</if>
+			<if test="heartmri != null  ">heartmri,</if>
+			<if test="ppi != null  ">ppi,</if>
+			<if test="ctpat != null  ">ctpat,</if>
+			<if test="mripae != null  ">mripae,</if>
+			<if test="cmri != null  ">cmri,</if>
+			<if test="rhc != null  ">rhc,</if>
+			<if test="noreason2 != null  ">noreason2,</if>
+			<if test="otherreason != null  and otherreason != ''  ">otherreason,</if>
+			<if test="pa != null  ">pa,</if>
+			<if test="firstcatheter != null  ">firstcatheter,</if>
+			<if test="hr != null  ">hr,</if>
+			<if test="bpshrink != null  ">bpshrink,</if>
+			<if test="bprelaxation != null  ">bprelaxation,</if>
+			<if test="bpave != null  ">bpave,</if>
+			<if test="rap != null  ">rap,</if>
+			<if test="rapshrink != null  ">rapshrink,</if>
+			<if test="raprelaxation1 != null  ">raprelaxation1,</if>
+			<if test="rapave != null  ">rapave,</if>
+			<if test="pap != null  ">pap,</if>
+			<if test="papshrink != null  ">papshrink,</if>
+			<if test="raprelaxation2 != null  ">raprelaxation2,</if>
+			<if test="papave != null  ">papave,</if>
+			<if test="pawp != null  ">pawp,</if>
+			<if test="pawpshrink != null  ">pawpshrink,</if>
+			<if test="pawprelaxation != null  ">pawprelaxation,</if>
+			<if test="pawpave != null  ">pawpave,</if>
+			<if test="co != null  ">co,</if>
+			<if test="comethod != null  ">comethod,</if>
+			<if test="ci != null  ">ci,</if>
+			<if test="pvr != null  ">pvr,</if>
+			<if test="lvedd != null  ">lvedd,</if>
+			<if test="lvef != null  ">lvef,</if>
+			<if test="pasp != null  ">pasp,</if>
+			<if test="tapse != null  ">tapse,</if>
+			<if test="pe != null  ">pe,</if>
+			<if test="bloodgroup != null  ">bloodgroup,</if>
+			<if test="ddimer != null  ">ddimer,</if>
+			<if test="nt != null  ">nt,</if>
+			<if test="ntnumber != null  ">ntnumber,</if>
+			<if test="ast != null  ">ast,</if>
+			<if test="alt != null  ">alt,</if>
+			<if test="tbil != null  ">tbil,</if>
+			<if test="dbil != null  ">dbil,</if>
+			<if test="cr != null  ">cr,</if>
+			<if test="bloodgas != null  ">bloodgas,</if>
+			<if test="abgt != null  ">abgt,</if>
+			<if test="pco != null  ">pco,</if>
+			<if test="po != null  ">po,</if>
+			<if test="sao != null  ">sao,</if>
+			<if test="paa != null  ">paa,</if>
+			<if test="anticoagulant != null  ">anticoagulant,</if>
+			<if test="drug1 != null  ">drug1,</if>
+			<if test="otherdrug != null  and otherdrug != ''  ">otherdrug,</if>
+			<if test="antiplatelet != null  ">antiplatelet,</if>
+			<if test="drug5 != null  ">drug5,</if>
+			<if test="otherdrug2 != null  and otherdrug2 != ''  ">otherdrug2,</if>
+			<if test="targeting != null  ">targeting,</if>
+			<if test="laxg != null  ">laxg,</if>
+			<if test="fivepi != null  ">fivepi,</if>
+			<if test="drug2 != null  ">drug2,</if>
+			<if test="era != null  ">era,</if>
+			<if test="drug3 != null  ">drug3,</if>
+			<if test="prostacyclin != null  ">prostacyclin,</if>
+			<if test="drug4 != null  ">drug4,</if>
+			<if test="exfoliation != null  ">exfoliation,</if>
+			<if test="exfoliationdate != null  ">exfoliationdate,</if>
+			<if test="angioplasty != null  ">angioplasty,</if>
+			<if test="angioplastyfdate != null  ">angioplastyfdate,</if>
+			<if test="death != null  ">death,</if>
+			<if test="deathreason != null  ">deathreason,</if>
+			<if test="createBy != null  and createBy != ''  ">create_by,</if>
+			<if test="createTime != null  ">create_time,</if>
+			<if test="updateBy != null  and updateBy != ''  ">update_by,</if>
+			<if test="updateTime != null  ">update_time,</if>
+			<if test="ts != null  ">ts,</if>
+			<if test="dr != null  ">dr,</if>
+			<if test="svo2 != null  ">svo2,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="code != null  and code != ''  ">#{code},</if>
+			<if test="department != null  ">#{department},</if>
+			<if test="maker != null  ">#{maker},</if>
+			<if test="patientName != null  and patientName != ''  ">#{patientName},</if>
+			<if test="patientSex != null  ">#{patientSex},</if>
+			<if test="patientAddress != null  and patientAddress != ''  ">#{patientAddress},</if>
+			<if test="birthday != null  ">#{birthday},</if>
+			<if test="height != null  ">#{height},</if>
+			<if test="weight != null  ">#{weight},</if>
+			<if test="firsttime != null  ">#{firsttime},</if>
+			<if test="specialsigns != null  ">#{specialsigns},</if>
+			<if test="vtehistory != null  ">#{vtehistory},</if>
+			<if test="ape != null  ">#{ape},</if>
+			<if test="ledvt != null  ">#{ledvt},</if>
+			<if test="otherthrombus != null  and otherthrombus != ''  ">#{otherthrombus},</if>
+			<if test="firstvtetime != null  ">#{firstvtetime},</if>
+			<if test="vterelapse != null  ">#{vterelapse},</if>
+			<if test="malignanttumor != null  ">#{malignanttumor},</if>
+			<if test="specifictumor != null  and specifictumor != ''  ">#{specifictumor},</if>
+			<if test="malignanttumordate != null  ">#{malignanttumordate},</if>
+			<if test="splenectomy != null  ">#{splenectomy},</if>
+			<if test="splenectormydate != null  ">#{splenectormydate},</if>
+			<if test="pacemaker != null  ">#{pacemaker},</if>
+			<if test="pacemakerdate != null  ">#{pacemakerdate},</if>
+			<if test="atrialhistory != null  ">#{atrialhistory},</if>
+			<if test="atrialhistorydate != null  ">#{atrialhistorydate},</if>
+			<if test="levv != null  ">#{levv},</if>
+			<if test="levvdate != null  ">#{levvdate},</if>
+			<if test="ibd != null  ">#{ibd},</if>
+			<if test="ibddiagnosis != null  and ibddiagnosis != ''  ">#{ibddiagnosis},</if>
+			<if test="ibddate != null  ">#{ibddate},</if>
+			<if test="connectivetissue != null  ">#{connectivetissue},</if>
+			<if test="aas != null  ">#{aas},</if>
+			<if test="la != null  ">#{la},</if>
+			<if test="aclIgg != null  ">#{aclIgg},</if>
+			<if test="aclIgm != null  ">#{aclIgm},</if>
+			<if test="lgg != null  ">#{lgg},</if>
+			<if test="lgm != null  ">#{lgm},</if>
+			<if test="sie != null  ">#{sie},</if>
+			<if test="sjogrens != null  ">#{sjogrens},</if>
+			<if test="ssclerosis != null  ">#{ssclerosis},</if>
+			<if test="mctd != null  ">#{mctd},</if>
+			<if test="rarthritis != null  ">#{rarthritis},</if>
+			<if test="uctd != null  ">#{uctd},</if>
+			<if test="octd != null  ">#{octd},</if>
+			<if test="octdspecific != null  and octdspecific != ''  ">#{octdspecific},</if>
+			<if test="hps != null  ">#{hps},</if>
+			<if test="hcylevel != null  ">#{hcylevel},</if>
+			<if test="maximum != null  ">#{maximum},</if>
+			<if test="threeitems != null  ">#{threeitems},</if>
+			<if test="at != null  ">#{at},</if>
+			<if test="proteins != null  ">#{proteins},</if>
+			<if test="proteinc != null  ">#{proteinc},</if>
+			<if test="hat != null  ">#{hat},</if>
+			<if test="otherriskjudge != null  ">#{otherriskjudge},</if>
+			<if test="otherrisk != null  and otherrisk != ''  ">#{otherrisk},</if>
+			<if test="hypertension != null  ">#{hypertension},</if>
+			<if test="coronaryheart != null  ">#{coronaryheart},</if>
+			<if test="revascularization != null  ">#{revascularization},</if>
+			<if test="diabetes != null  ">#{diabetes},</if>
+			<if test="lhfailure != null  ">#{lhfailure},</if>
+			<if test="lhfailurespecific != null  ">#{lhfailurespecific},</if>
+			<if test="renalinsufficiency != null  ">#{renalinsufficiency},</if>
+			<if test="cerebralinfarction != null  ">#{cerebralinfarction},</if>
+			<if test="copd != null  ">#{copd},</if>
+			<if test="congenitalheart != null  ">#{congenitalheart},</if>
+			<if test="chdspecific != null  and chdspecific != ''  ">#{chdspecific},</if>
+			<if test="hypothyroidism != null  ">#{hypothyroidism},</if>
+			<if test="hyperthyroidism != null  ">#{hyperthyroidism},</if>
+			<if test="anemia != null  ">#{anemia},</if>
+			<if test="polycythemia != null  ">#{polycythemia},</if>
+			<if test="eosinophilia != null  ">#{eosinophilia},</if>
+			<if test="plateletlower != null  ">#{plateletlower},</if>
+			<if test="plateletup != null  ">#{plateletup},</if>
+			<if test="othercomplications != null  ">#{othercomplications},</if>
+			<if test="othercomplicationss != null  and othercomplicationss != ''  ">#{othercomplicationss},</if>
+			<if test="cteph != null  ">#{cteph},</if>
+			<if test="sixmwd != null  ">#{sixmwd},</if>
+			<if test="noreason1 != null  ">#{noreason1},</if>
+			<if test="walking != null  ">#{walking},</if>
+			<if test="respiratory != null  ">#{respiratory},</if>
+			<if test="vcmax != null  ">#{vcmax},</if>
+			<if test="tlc != null  ">#{tlc},</if>
+			<if test="rv != null  ">#{rv},</if>
+			<if test="rvtlc != null  ">#{rvtlc},</if>
+			<if test="fev1 != null  ">#{fev1},</if>
+			<if test="fev1fvc != null  ">#{fev1fvc},</if>
+			<if test="fef != null  ">#{fef},</if>
+			<if test="tlcosb != null  ">#{tlcosb},</if>
+			<if test="tlcova != null  ">#{tlcova},</if>
+			<if test="cet != null  ">#{cet},</if>
+			<if test="heartmri != null  ">#{heartmri},</if>
+			<if test="ppi != null  ">#{ppi},</if>
+			<if test="ctpat != null  ">#{ctpat},</if>
+			<if test="mripae != null  ">#{mripae},</if>
+			<if test="cmri != null  ">#{cmri},</if>
+			<if test="rhc != null  ">#{rhc},</if>
+			<if test="noreason2 != null  ">#{noreason2},</if>
+			<if test="otherreason != null  and otherreason != ''  ">#{otherreason},</if>
+			<if test="pa != null  ">#{pa},</if>
+			<if test="firstcatheter != null  ">#{firstcatheter},</if>
+			<if test="hr != null  ">#{hr},</if>
+			<if test="bpshrink != null  ">#{bpshrink},</if>
+			<if test="bprelaxation != null  ">#{bprelaxation},</if>
+			<if test="bpave != null  ">#{bpave},</if>
+			<if test="rap != null  ">#{rap},</if>
+			<if test="rapshrink != null  ">#{rapshrink},</if>
+			<if test="raprelaxation1 != null  ">#{raprelaxation1},</if>
+			<if test="rapave != null  ">#{rapave},</if>
+			<if test="pap != null  ">#{pap},</if>
+			<if test="papshrink != null  ">#{papshrink},</if>
+			<if test="raprelaxation2 != null  ">#{raprelaxation2},</if>
+			<if test="papave != null  ">#{papave},</if>
+			<if test="pawp != null  ">#{pawp},</if>
+			<if test="pawpshrink != null  ">#{pawpshrink},</if>
+			<if test="pawprelaxation != null  ">#{pawprelaxation},</if>
+			<if test="pawpave != null  ">#{pawpave},</if>
+			<if test="co != null  ">#{co},</if>
+			<if test="comethod != null  ">#{comethod},</if>
+			<if test="ci != null  ">#{ci},</if>
+			<if test="pvr != null  ">#{pvr},</if>
+			<if test="lvedd != null  ">#{lvedd},</if>
+			<if test="lvef != null  ">#{lvef},</if>
+			<if test="pasp != null  ">#{pasp},</if>
+			<if test="tapse != null  ">#{tapse},</if>
+			<if test="pe != null  ">#{pe},</if>
+			<if test="bloodgroup != null  ">#{bloodgroup},</if>
+			<if test="ddimer != null  ">#{ddimer},</if>
+			<if test="nt != null  ">#{nt},</if>
+			<if test="ntnumber != null  ">#{ntnumber},</if>
+			<if test="ast != null  ">#{ast},</if>
+			<if test="alt != null  ">#{alt},</if>
+			<if test="tbil != null  ">#{tbil},</if>
+			<if test="dbil != null  ">#{dbil},</if>
+			<if test="cr != null  ">#{cr},</if>
+			<if test="bloodgas != null  ">#{bloodgas},</if>
+			<if test="abgt != null  ">#{abgt},</if>
+			<if test="pco != null  ">#{pco},</if>
+			<if test="po != null  ">#{po},</if>
+			<if test="sao != null  ">#{sao},</if>
+			<if test="paa != null  ">#{paa},</if>
+			<if test="anticoagulant != null  ">#{anticoagulant},</if>
+			<if test="drug1 != null  ">#{drug1},</if>
+			<if test="otherdrug != null  and otherdrug != ''  ">#{otherdrug},</if>
+			<if test="antiplatelet != null  ">#{antiplatelet},</if>
+			<if test="drug5 != null  ">#{drug5},</if>
+			<if test="otherdrug2 != null  and otherdrug2 != ''  ">#{otherdrug2},</if>
+			<if test="targeting != null  ">#{targeting},</if>
+			<if test="laxg != null  ">#{laxg},</if>
+			<if test="fivepi != null  ">#{fivepi},</if>
+			<if test="drug2 != null  ">#{drug2},</if>
+			<if test="era != null  ">#{era},</if>
+			<if test="drug3 != null  ">#{drug3},</if>
+			<if test="prostacyclin != null  ">#{prostacyclin},</if>
+			<if test="drug4 != null  ">#{drug4},</if>
+			<if test="exfoliation != null  ">#{exfoliation},</if>
+			<if test="exfoliationdate != null  ">#{exfoliationdate},</if>
+			<if test="angioplasty != null  ">#{angioplasty},</if>
+			<if test="angioplastyfdate != null  ">#{angioplastyfdate},</if>
+			<if test="death != null  ">#{death},</if>
+			<if test="deathreason != null  ">#{deathreason},</if>
+			<if test="createBy != null  and createBy != ''  ">#{createBy},</if>
+			<if test="createTime != null  ">#{createTime},</if>
+			<if test="updateBy != null  and updateBy != ''  ">#{updateBy},</if>
+			<if test="updateTime != null  ">#{updateTime},</if>
+			<if test="ts != null  ">#{ts},</if>
+			<if test="dr != null  ">#{dr},</if>
+			<if test="svo2 != null  ">#{svo2},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateCteph" parameterType="SysCteph">
+        update sys_cteph
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="code != null  and code != ''  ">code = #{code},</if>
+            <if test="department != null  ">department = #{department},</if>
+            <if test="maker != null  ">maker = #{maker},</if>
+            <if test="patientName != null  and patientName != ''  ">patient_name = #{patientName},</if>
+            <if test="patientSex != null  ">patient_sex = #{patientSex},</if>
+            <if test="patientAddress != null  and patientAddress != ''  ">patient_address = #{patientAddress},</if>
+            <if test="birthday != null  ">birthday = #{birthday},</if>
+            <if test="height != null  ">height = #{height},</if>
+            <if test="weight != null  ">weight = #{weight},</if>
+            <if test="firsttime != null  ">firsttime = #{firsttime},</if>
+            <if test="specialsigns != null  ">specialsigns = #{specialsigns},</if>
+            <if test="vtehistory != null  ">vtehistory = #{vtehistory},</if>
+            <if test="ape != null  ">ape = #{ape},</if>
+            <if test="ledvt != null  ">ledvt = #{ledvt},</if>
+            <if test="otherthrombus != null  and otherthrombus != ''  ">otherthrombus = #{otherthrombus},</if>
+            <if test="firstvtetime != null  ">firstvtetime = #{firstvtetime},</if>
+            <if test="vterelapse != null  ">vterelapse = #{vterelapse},</if>
+            <if test="malignanttumor != null  ">malignanttumor = #{malignanttumor},</if>
+            <if test="specifictumor != null  and specifictumor != ''  ">specifictumor = #{specifictumor},</if>
+            <if test="malignanttumordate != null  ">malignanttumordate = #{malignanttumordate},</if>
+            <if test="splenectomy != null  ">splenectomy = #{splenectomy},</if>
+            <if test="splenectormydate != null  ">splenectormydate = #{splenectormydate},</if>
+            <if test="pacemaker != null  ">pacemaker = #{pacemaker},</if>
+            <if test="pacemakerdate != null  ">pacemakerdate = #{pacemakerdate},</if>
+            <if test="atrialhistory != null  ">atrialhistory = #{atrialhistory},</if>
+            <if test="atrialhistorydate != null  ">atrialhistorydate = #{atrialhistorydate},</if>
+            <if test="levv != null  ">levv = #{levv},</if>
+            <if test="levvdate != null  ">levvdate = #{levvdate},</if>
+            <if test="ibd != null  ">ibd = #{ibd},</if>
+            <if test="ibddiagnosis != null  and ibddiagnosis != ''  ">ibddiagnosis = #{ibddiagnosis},</if>
+            <if test="ibddate != null  ">ibddate = #{ibddate},</if>
+            <if test="connectivetissue != null  ">connectivetissue = #{connectivetissue},</if>
+            <if test="aas != null  ">aas = #{aas},</if>
+            <if test="la != null  ">la = #{la},</if>
+            <if test="aclIgg != null  ">acL_igg = #{aclIgg},</if>
+            <if test="aclIgm != null  ">acl_igm = #{aclIgm},</if>
+            <if test="lgg != null  ">lgg = #{lgg},</if>
+            <if test="lgm != null  ">lgm = #{lgm},</if>
+            <if test="sie != null  ">sie = #{sie},</if>
+            <if test="sjogrens != null  ">sjogrens = #{sjogrens},</if>
+            <if test="ssclerosis != null  ">ssclerosis = #{ssclerosis},</if>
+            <if test="mctd != null  ">mctd = #{mctd},</if>
+            <if test="rarthritis != null  ">rarthritis = #{rarthritis},</if>
+            <if test="uctd != null  ">uctd = #{uctd},</if>
+            <if test="octd != null  ">octd = #{octd},</if>
+            <if test="octdspecific != null  and octdspecific != ''  ">octdspecific = #{octdspecific},</if>
+            <if test="hps != null  ">hps = #{hps},</if>
+            <if test="hcylevel != null  ">hcylevel = #{hcylevel},</if>
+            <if test="maximum != null  ">maximum = #{maximum},</if>
+            <if test="threeitems != null  ">threeitems = #{threeitems},</if>
+            <if test="at != null  ">at = #{at},</if>
+            <if test="proteins != null  ">proteins = #{proteins},</if>
+            <if test="proteinc != null  ">proteinc = #{proteinc},</if>
+            <if test="hat != null  ">hat = #{hat},</if>
+            <if test="otherriskjudge != null  ">otherriskjudge = #{otherriskjudge},</if>
+            <if test="otherrisk != null  and otherrisk != ''  ">otherrisk = #{otherrisk},</if>
+            <if test="hypertension != null  ">hypertension = #{hypertension},</if>
+            <if test="coronaryheart != null  ">coronaryheart = #{coronaryheart},</if>
+            <if test="revascularization != null  ">revascularization = #{revascularization},</if>
+            <if test="diabetes != null  ">diabetes = #{diabetes},</if>
+            <if test="lhfailure != null  ">lhfailure = #{lhfailure},</if>
+            <if test="lhfailurespecific != null  ">lhfailurespecific = #{lhfailurespecific},</if>
+            <if test="renalinsufficiency != null  ">renalinsufficiency = #{renalinsufficiency},</if>
+            <if test="cerebralinfarction != null  ">cerebralinfarction = #{cerebralinfarction},</if>
+            <if test="copd != null  ">copd = #{copd},</if>
+            <if test="congenitalheart != null  ">congenitalheart = #{congenitalheart},</if>
+            <if test="chdspecific != null  and chdspecific != ''  ">chdspecific = #{chdspecific},</if>
+            <if test="hypothyroidism != null  ">hypothyroidism = #{hypothyroidism},</if>
+            <if test="hyperthyroidism != null  ">hyperthyroidism = #{hyperthyroidism},</if>
+            <if test="anemia != null  ">anemia = #{anemia},</if>
+            <if test="polycythemia != null  ">polycythemia = #{polycythemia},</if>
+            <if test="eosinophilia != null  ">eosinophilia = #{eosinophilia},</if>
+            <if test="plateletlower != null  ">plateletlower = #{plateletlower},</if>
+            <if test="plateletup != null  ">plateletup = #{plateletup},</if>
+            <if test="othercomplications != null  ">othercomplications = #{othercomplications},</if>
+            <if test="othercomplicationss != null  and othercomplicationss != ''  ">othercomplicationss = #{othercomplicationss},</if>
+            <if test="cteph != null  ">cteph = #{cteph},</if>
+            <if test="sixmwd != null  ">sixmwd = #{sixmwd},</if>
+            <if test="noreason1 != null  ">noreason1 = #{noreason1},</if>
+            <if test="walking != null  ">walking = #{walking},</if>
+            <if test="respiratory != null  ">respiratory = #{respiratory},</if>
+            <if test="vcmax != null  ">vcmax = #{vcmax},</if>
+            <if test="tlc != null  ">tlc = #{tlc},</if>
+            <if test="rv != null  ">rv = #{rv},</if>
+            <if test="rvtlc != null  ">rvtlc = #{rvtlc},</if>
+            <if test="fev1 != null  ">fev1 = #{fev1},</if>
+            <if test="fev1fvc != null  ">fev1fvc = #{fev1fvc},</if>
+            <if test="fef != null  ">fef = #{fef},</if>
+            <if test="tlcosb != null  ">tlcosb = #{tlcosb},</if>
+            <if test="tlcova != null  ">tlcova = #{tlcova},</if>
+            <if test="cet != null  ">cet = #{cet},</if>
+            <if test="heartmri != null  ">heartmri = #{heartmri},</if>
+            <if test="ppi != null  ">ppi = #{ppi},</if>
+            <if test="ctpat != null  ">ctpat = #{ctpat},</if>
+            <if test="mripae != null  ">mripae = #{mripae},</if>
+            <if test="cmri != null  ">cmri = #{cmri},</if>
+            <if test="rhc != null  ">rhc = #{rhc},</if>
+            <if test="noreason2 != null  ">noreason2 = #{noreason2},</if>
+            <if test="otherreason != null  and otherreason != ''  ">otherreason = #{otherreason},</if>
+            <if test="pa != null  ">pa = #{pa},</if>
+            <if test="firstcatheter != null  ">firstcatheter = #{firstcatheter},</if>
+            <if test="hr != null  ">hr = #{hr},</if>
+            <if test="bpshrink != null  ">bpshrink = #{bpshrink},</if>
+            <if test="bprelaxation != null  ">bprelaxation = #{bprelaxation},</if>
+            <if test="bpave != null  ">bpave = #{bpave},</if>
+            <if test="rap != null  ">rap = #{rap},</if>
+            <if test="rapshrink != null  ">rapshrink = #{rapshrink},</if>
+            <if test="raprelaxation1 != null  ">raprelaxation1 = #{raprelaxation1},</if>
+            <if test="rapave != null  ">rapave = #{rapave},</if>
+            <if test="pap != null  ">pap = #{pap},</if>
+            <if test="papshrink != null  ">papshrink = #{papshrink},</if>
+            <if test="raprelaxation2 != null  ">raprelaxation2 = #{raprelaxation2},</if>
+            <if test="papave != null  ">papave = #{papave},</if>
+            <if test="pawp != null  ">pawp = #{pawp},</if>
+            <if test="pawpshrink != null  ">pawpshrink = #{pawpshrink},</if>
+            <if test="pawprelaxation != null  ">pawprelaxation = #{pawprelaxation},</if>
+            <if test="pawpave != null  ">pawpave = #{pawpave},</if>
+            <if test="co != null  ">co = #{co},</if>
+            <if test="comethod != null  ">comethod = #{comethod},</if>
+            <if test="ci != null  ">ci = #{ci},</if>
+            <if test="pvr != null  ">pvr = #{pvr},</if>
+            <if test="lvedd != null  ">lvedd = #{lvedd},</if>
+            <if test="lvef != null  ">lvef = #{lvef},</if>
+            <if test="pasp != null  ">pasp = #{pasp},</if>
+            <if test="tapse != null  ">tapse = #{tapse},</if>
+            <if test="pe != null  ">pe = #{pe},</if>
+            <if test="bloodgroup != null  ">bloodgroup = #{bloodgroup},</if>
+            <if test="ddimer != null  ">ddimer = #{ddimer},</if>
+            <if test="nt != null  ">nt = #{nt},</if>
+            <if test="ntnumber != null  ">ntnumber = #{ntnumber},</if>
+            <if test="ast != null  ">ast = #{ast},</if>
+            <if test="alt != null  ">alt = #{alt},</if>
+            <if test="tbil != null  ">tbil = #{tbil},</if>
+            <if test="dbil != null  ">dbil = #{dbil},</if>
+            <if test="cr != null  ">cr = #{cr},</if>
+            <if test="bloodgas != null  ">bloodgas = #{bloodgas},</if>
+            <if test="abgt != null  ">abgt = #{abgt},</if>
+            <if test="pco != null  ">pco = #{pco},</if>
+            <if test="po != null  ">po = #{po},</if>
+            <if test="sao != null  ">sao = #{sao},</if>
+            <if test="paa != null  ">paa = #{paa},</if>
+            <if test="anticoagulant != null  ">anticoagulant = #{anticoagulant},</if>
+            <if test="drug1 != null  ">drug1 = #{drug1},</if>
+            <if test="otherdrug != null  and otherdrug != ''  ">otherdrug = #{otherdrug},</if>
+            <if test="antiplatelet != null  ">antiplatelet = #{antiplatelet},</if>
+            <if test="drug5 != null  ">drug5 = #{drug5},</if>
+            <if test="otherdrug2 != null  and otherdrug2 != ''  ">otherdrug2 = #{otherdrug2},</if>
+            <if test="targeting != null  ">targeting = #{targeting},</if>
+            <if test="laxg != null  ">laxg = #{laxg},</if>
+            <if test="fivepi != null  ">fivepi = #{fivepi},</if>
+            <if test="drug2 != null  ">drug2 = #{drug2},</if>
+            <if test="era != null  ">era = #{era},</if>
+            <if test="drug3 != null  ">drug3 = #{drug3},</if>
+            <if test="prostacyclin != null  ">prostacyclin = #{prostacyclin},</if>
+            <if test="drug4 != null  ">drug4 = #{drug4},</if>
+            <if test="exfoliation != null  ">exfoliation = #{exfoliation},</if>
+            <if test="exfoliationdate != null  ">exfoliationdate = #{exfoliationdate},</if>
+            <if test="angioplasty != null  ">angioplasty = #{angioplasty},</if>
+            <if test="angioplastyfdate != null  ">angioplastyfdate = #{angioplastyfdate},</if>
+            <if test="death != null  ">death = #{death},</if>
+            <if test="deathreason != null  ">deathreason = #{deathreason},</if>
+            <if test="createBy != null  and createBy != ''  ">create_by = #{createBy},</if>
+            <if test="createTime != null  ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''  ">update_by = #{updateBy},</if>
+            <if test="updateTime != null  ">update_time = #{updateTime},</if>
+            <if test="ts != null  ">ts = #{ts},</if>
+            <if test="dr != null  ">dr = #{dr},</if>
+            <if test="svo2 != null  ">svo2 = #{svo2},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+	<delete id="deleteCtephById" parameterType="Integer">
+        delete from sys_cteph where id = #{id}
+    </delete>
+	
+    <delete id="deleteCtephByIds" parameterType="String">
+        delete from sys_cteph where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
