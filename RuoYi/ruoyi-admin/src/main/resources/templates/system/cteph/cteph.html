@@ -30,7 +30,7 @@
 							<li>
 								患者性别：<input type="text" name="patientSex"/>
 							</li>
-
+<!-- 
 							<li>
 								患者地址：<input type="text" name="patientAddress"/>
 							</li>
@@ -658,11 +658,15 @@
 							<li>
 								创建者：<input type="text" name="createBy"/>
 							</li>
-
-							<li>
-								创建时间：<input type="text" name="createTime"/>
+-->
+							<li class="select-time">
+								<label>创建时间： </label>
+								<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
+								<span>-</span>
+								<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
 							</li>
 
+<!--
 							<li>
 								修改人：<input type="text" name="updateBy"/>
 							</li>
@@ -682,7 +686,7 @@
 							<li>
 								SvO2 (肺动脉氧饱和度), %：<input type="text" name="svo2"/>
 							</li>
-
+ -->
 							<li>
 								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
 								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
@@ -737,16 +741,17 @@
 				{
 					field : 'code', 
 					title : '编码',
-					sortable: true
+					sortable: true,
+					visible: false
 				},
 				{
-					field : 'department', 
+					field : 'dept.deptName', 
 					title : '科室',
 					sortable: true
 				},
 				{
 					field : 'maker', 
-					title : '制表人',
+					title : '填表人',
 					sortable: true
 				},
 				{

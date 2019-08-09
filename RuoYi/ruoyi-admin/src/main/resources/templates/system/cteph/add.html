@@ -7,23 +7,15 @@
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-cteph-add">
+            <input name="department" type="hidden" id="treeId"/>
 			<div class="form-group">	
-				<label class="col-sm-3 control-label">编码：</label>
-				<div class="col-sm-8">
-					<input id="code" name="code" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">科室：</label>
-				<div class="col-sm-8">
-					<input id="department" name="department" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">制表人：</label>
-				<div class="col-sm-8">
-					<input id="maker" name="maker" class="form-control" type="text">
-				</div>
+                <label class="col-sm-3 control-label"><span style="color: red; ">*</span>归属科室：</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                    	<input name="deptName" onclick="selectDeptTree()" id="treeName" type="text" placeholder="请选择归属部门" class="form-control" required>
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">患者姓名：</label>
@@ -34,7 +26,12 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">患者性别：</label>
 				<div class="col-sm-8">
-					<input id="patientSex" name="patientSex" class="form-control" type="text">
+                    <div class="input-group" style="width: 100%">
+                        <select name="patientSex" class="form-control m-b" th:with="type=${@dict.getType('sys_user_sex')}">
+            			    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+			            </select>
+                    </div>
+<!-- 					<input id="patientSex" name="patientSex" class="form-control" type="text"> -->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -46,25 +43,25 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">生日：</label>
 				<div class="col-sm-8">
-					<input id="birthday" name="birthday" class="form-control" type="text">
+					<input id="birthday" name="birthday" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">身高：</label>
 				<div class="col-sm-8">
-					<input id="height" name="height" class="form-control" type="text">
+					<input id="height" name="height" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">体重：</label>
 				<div class="col-sm-8">
-					<input id="weight" name="weight" class="form-control" type="text">
+					<input id="weight" name="weight" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">首发症状时间：</label>
 				<div class="col-sm-8">
-					<input id="firsttime" name="firsttime" class="form-control" type="text">
+					<input id="firsttime" name="firsttime" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -100,7 +97,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">首发VTE事件时间：</label>
 				<div class="col-sm-8">
-					<input id="firstvtetime" name="firstvtetime" class="form-control" type="text">
+					<input id="firstvtetime" name="firstvtetime" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -124,7 +121,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">诊断时间：</label>
 				<div class="col-sm-8">
-					<input id="malignanttumordate" name="malignanttumordate" class="form-control" type="text">
+					<input id="malignanttumordate" name="malignanttumordate" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -136,7 +133,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">脾切除手术时间：</label>
 				<div class="col-sm-8">
-					<input id="splenectormydate" name="splenectormydate" class="form-control" type="text">
+					<input id="splenectormydate" name="splenectormydate" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -148,7 +145,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">起搏器植入时间：</label>
 				<div class="col-sm-8">
-					<input id="pacemakerdate" name="pacemakerdate" class="form-control" type="text">
+					<input id="pacemakerdate" name="pacemakerdate" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -160,7 +157,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">手术时间：</label>
 				<div class="col-sm-8">
-					<input id="atrialhistorydate" name="atrialhistorydate" class="form-control" type="text">
+					<input id="atrialhistorydate" name="atrialhistorydate" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -172,7 +169,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">下肢静脉曲张诊断时间：</label>
 				<div class="col-sm-8">
-					<input id="levvdate" name="levvdate" class="form-control" type="text">
+					<input id="levvdate" name="levvdate" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -190,7 +187,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">炎症性肠病诊断时间：</label>
 				<div class="col-sm-8">
-					<input id="ibddate" name="ibddate" class="form-control" type="text">
+					<input id="ibddate" name="ibddate" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -298,7 +295,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">参考值上限：</label>
 				<div class="col-sm-8">
-					<input id="maximum" name="maximum" class="form-control" type="text">
+					<input id="maximum" name="maximum" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -484,7 +481,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">步行距离（m）：</label>
 				<div class="col-sm-8">
-					<input id="walking" name="walking" class="form-control" type="text">
+					<input id="walking" name="walking" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -578,7 +575,7 @@
 				</div>
 			</div>
 			<div class="form-group">	
-				<label class="col-sm-3 control-label">：</label>
+				<label class="col-sm-3 control-label">CMRI：</label>
 				<div class="col-sm-8">
 					<input id="cmri" name="cmri" class="form-control" type="text">
 				</div>
@@ -610,7 +607,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">首次导管时间：</label>
 				<div class="col-sm-8">
-					<input id="firstcatheter" name="firstcatheter" class="form-control" type="text">
+					<input id="firstcatheter" name="firstcatheter" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -622,19 +619,19 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">BP收缩(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="bpshrink" name="bpshrink" class="form-control" type="text">
+					<input id="bpshrink" name="bpshrink" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">BP舒张(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="bprelaxation" name="bprelaxation" class="form-control" type="text">
+					<input id="bprelaxation" name="bprelaxation" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">BP平均(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="bpave" name="bpave" class="form-control" type="text">
+					<input id="bpave" name="bpave" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -646,19 +643,19 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">RAP收缩(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="rapshrink" name="rapshrink" class="form-control" type="text">
+					<input id="rapshrink" name="rapshrink" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">RAP舒张(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="raprelaxation1" name="raprelaxation1" class="form-control" type="text">
+					<input id="raprelaxation1" name="raprelaxation1" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">RAP平均(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="rapave" name="rapave" class="form-control" type="text">
+					<input id="rapave" name="rapave" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -670,19 +667,19 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PAP收缩(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="papshrink" name="papshrink" class="form-control" type="text">
+					<input id="papshrink" name="papshrink" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PAP舒张(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="raprelaxation2" name="raprelaxation2" class="form-control" type="text">
+					<input id="raprelaxation2" name="raprelaxation2" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PAP平均(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="papave" name="papave" class="form-control" type="text">
+					<input id="papave" name="papave" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -694,25 +691,25 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PAWP收缩(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="pawpshrink" name="pawpshrink" class="form-control" type="text">
+					<input id="pawpshrink" name="pawpshrink" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PAWP舒张(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="pawprelaxation" name="pawprelaxation" class="form-control" type="text">
+					<input id="pawprelaxation" name="pawprelaxation" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PAWP平均(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="pawpave" name="pawpave" class="form-control" type="text">
+					<input id="pawpave" name="pawpave" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">CO (Qp), L/min：</label>
 				<div class="col-sm-8">
-					<input id="co" name="co" class="form-control" type="text">
+					<input id="co" name="co" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -724,7 +721,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">CI, L/min/m2：</label>
 				<div class="col-sm-8">
-					<input id="ci" name="ci" class="form-control" type="text">
+					<input id="ci" name="ci" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -736,25 +733,25 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">左室舒张末内径LVEDD (mm)：</label>
 				<div class="col-sm-8">
-					<input id="lvedd" name="lvedd" class="form-control" type="text">
+					<input id="lvedd" name="lvedd" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">左室射血分数LVEF (%)：</label>
 				<div class="col-sm-8">
-					<input id="lvef" name="lvef" class="form-control" type="text">
+					<input id="lvef" name="lvef" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">超声估测肺动脉收缩压PASP(mm Hg)：</label>
 				<div class="col-sm-8">
-					<input id="pasp" name="pasp" class="form-control" type="text">
+					<input id="pasp" name="pasp" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">三尖瓣环收缩期位移 TAPSE（mm）：</label>
 				<div class="col-sm-8">
-					<input id="tapse" name="tapse" class="form-control" type="text">
+					<input id="tapse" name="tapse" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -772,7 +769,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">D-二聚体(μg/mL)：</label>
 				<div class="col-sm-8">
-					<input id="ddimer" name="ddimer" class="form-control" type="text">
+					<input id="ddimer" name="ddimer" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -784,37 +781,37 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">NT-proBNP pg/ml：</label>
 				<div class="col-sm-8">
-					<input id="ntnumber" name="ntnumber" class="form-control" type="text">
+					<input id="ntnumber" name="ntnumber" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">AST（IU/ml）：</label>
 				<div class="col-sm-8">
-					<input id="ast" name="ast" class="form-control" type="text">
+					<input id="ast" name="ast" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">ALT（IU/ml）：</label>
 				<div class="col-sm-8">
-					<input id="alt" name="alt" class="form-control" type="text">
+					<input id="alt" name="alt" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">Tbil（μmol/L）：</label>
 				<div class="col-sm-8">
-					<input id="tbil" name="tbil" class="form-control" type="text">
+					<input id="tbil" name="tbil" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">Dbil（μmol/L）：</label>
 				<div class="col-sm-8">
-					<input id="dbil" name="dbil" class="form-control" type="text">
+					<input id="dbil" name="dbil" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">血Cr（μmol/L）：</label>
 				<div class="col-sm-8">
-					<input id="cr" name="cr" class="form-control" type="text">
+					<input id="cr" name="cr" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -832,25 +829,25 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PCO2 mmHg：</label>
 				<div class="col-sm-8">
-					<input id="pco" name="pco" class="form-control" type="text">
+					<input id="pco" name="pco" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">PO2 mmHg：</label>
 				<div class="col-sm-8">
-					<input id="po" name="po" class="form-control" type="text">
+					<input id="po" name="po" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">SaO2 %：</label>
 				<div class="col-sm-8">
-					<input id="sao" name="sao" class="form-control" type="text">
+					<input id="sao" name="sao" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">P(A-a) mmHg：</label>
 				<div class="col-sm-8">
-					<input id="paa" name="paa" class="form-control" type="text">
+					<input id="paa" name="paa" class="form-control" type="number">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -982,37 +979,13 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">创建时间：</label>
 				<div class="col-sm-8">
-					<input id="createTime" name="createTime" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">修改人：</label>
-				<div class="col-sm-8">
-					<input id="updateBy" name="updateBy" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">修改时间：</label>
-				<div class="col-sm-8">
-					<input id="updateTime" name="updateTime" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">时间戳：</label>
-				<div class="col-sm-8">
-					<input id="ts" name="ts" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">删除标记：</label>
-				<div class="col-sm-8">
-					<input id="dr" name="dr" class="form-control" type="text">
+					<input id="createTime" name="createTime" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">SvO2 (肺动脉氧饱和度), %：</label>
 				<div class="col-sm-8">
-					<input id="svo2" name="svo2" class="form-control" type="text">
+					<input id="svo2" name="svo2" class="form-control" type="number">
 				</div>
 			</div>
 		</form>
@@ -1034,6 +1007,29 @@
 	            $.operate.save(prefix + "/add", $('#form-cteph-add').serialize());
 	        }
 	    }
+        /*用户管理-新增-选择部门树*/
+        function selectDeptTree() {
+        	var treeId = $("#treeId").val();
+        	var department = $.common.isEmpty(treeId) ? "100" : $("#treeId").val();
+        	var url = ctx + "system/dept/selectDeptTree/" + department;
+			var options = {
+				title: '选择科室',
+				width: "380",
+				url: url,
+				callBack: doSubmit
+			};
+			$.modal.openOptions(options);
+		}		
+		function doSubmit(index, layero){
+			var tree = layero.find("iframe")[0].contentWindow.$._tree;
+			if ($.tree.notAllowParents(tree)) {
+				var body = layer.getChildFrame('body', index);
+    			$("#treeId").val(body.find('#treeId').val());
+    			$("#treeName").val(body.find('#treeName').val());
+    			layer.close(index);
+			}
+		}
+
 	</script>
 </body>
 </html>

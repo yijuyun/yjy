@@ -2,6 +2,11 @@ package com.ruoyi.system.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.ruoyi.common.annotation.Excel;
+import com.ruoyi.common.annotation.Excels;
+import com.ruoyi.common.annotation.Excel.Type;
 import com.ruoyi.common.core.domain.BaseEntity;
 import java.util.Date;
 
@@ -21,6 +26,14 @@ public class SysCteph extends BaseEntity
 	private String code;
 	/** 科室 */
 	private Integer department;
+
+    /** 部门对象 */
+    @Excels({
+        @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
+        @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
+    })
+    private SysDept dept;
+
 	/** 制表人 */
 	private Integer maker;
 	/** 患者姓名 */
@@ -30,12 +43,14 @@ public class SysCteph extends BaseEntity
 	/** 患者地址 */
 	private String patientAddress;
 	/** 生日 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date birthday;
 	/** 身高 */
 	private Float height;
 	/** 体重 */
 	private Float weight;
 	/** 首发症状时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date firsttime;
 	/** 特殊临床症状体征 */
 	private Integer specialsigns;
@@ -48,6 +63,7 @@ public class SysCteph extends BaseEntity
 	/** 其他部位深静脉血栓 */
 	private String otherthrombus;
 	/** 首发VTE事件时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date firstvtetime;
 	/** 是否有VTE事件复发 */
 	private Integer vterelapse;
@@ -56,28 +72,34 @@ public class SysCteph extends BaseEntity
 	/** 具体肿瘤诊断 */
 	private String specifictumor;
 	/** 诊断时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date malignanttumordate;
 	/** 脾切除 */
 	private Integer splenectomy;
 	/** 脾切除手术时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date splenectormydate;
 	/** 起搏器植入 */
 	private Integer pacemaker;
 	/** 起搏器植入时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date pacemakerdate;
 	/** 脑室心房分流手术 */
 	private Integer atrialhistory;
 	/** 手术时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date atrialhistorydate;
 	/** 下肢静脉曲张 */
 	private Integer levv;
 	/** 下肢静脉曲张诊断时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date levvdate;
 	/** 炎症性肠病 */
 	private Integer ibd;
 	/** 炎症性肠病具体诊断 */
 	private String ibddiagnosis;
 	/** 炎症性肠病诊断时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date ibddate;
 	/** 结缔组织病 */
 	private Integer connectivetissue;
@@ -218,6 +240,7 @@ public class SysCteph extends BaseEntity
 	/** 肺动脉造影 */
 	private Integer pa;
 	/** 首次导管时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date firstcatheter;
 	/** HR, bpm */
 	private Float hr;
@@ -330,10 +353,12 @@ public class SysCteph extends BaseEntity
 	/** 肺动脉内膜剥脱术 */
 	private Integer exfoliation;
 	/** 肺动脉内膜剥脱术时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date exfoliationdate;
 	/** 球囊肺动脉成形术 */
 	private Integer angioplasty;
 	/** 球囊肺动脉成形术时间 */
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date angioplastyfdate;
 	/** 是否死亡 */
 	private Integer death;
@@ -373,6 +398,21 @@ public class SysCteph extends BaseEntity
 	{
 		return department;
 	}
+	
+    public SysDept getDept()
+    {
+        if (dept == null)
+        {
+            dept = new SysDept();
+        }
+        return dept;
+    }
+
+    public void setDept(SysDept dept)
+    {
+        this.dept = dept;
+    }
+
 	public void setMaker(Integer maker) 
 	{
 		this.maker = maker;
@@ -1837,6 +1877,7 @@ public class SysCteph extends BaseEntity
             .append("id", getId())
             .append("code", getCode())
             .append("department", getDepartment())
+            .append("dept", getDept())
             .append("maker", getMaker())
             .append("patientName", getPatientName())
             .append("patientSex", getPatientSex())
