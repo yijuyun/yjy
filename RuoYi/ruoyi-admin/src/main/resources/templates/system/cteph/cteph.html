@@ -762,7 +762,18 @@
 				{
 					field : 'patientSex', 
 					title : '患者性别',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ // 单元格格式化函数
+					    var text = '-';
+					    if (value == 0) {
+						    text = "男";
+					    } else if (value == 1) {
+						    text = "女";
+					    } else if (value == 2) {
+						    text = "未知";
+						}
+					    return text;
+					}
 				},
 				{
 					field : 'patientAddress', 
@@ -822,7 +833,14 @@
 				{
 					field : 'vterelapse', 
 					title : '是否有VTE事件复发',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.vterelapse == 0) {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'malignanttumor', 
@@ -1007,7 +1025,14 @@
 				{
 					field : 'hat', 
 					title : '检测时或之前7日是否接受华法林抗凝治疗',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.hat == 0) {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'otherriskjudge', 
@@ -1032,7 +1057,14 @@
 				{
 					field : 'revascularization', 
 					title : '冠心病是否已行血运重建',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.revascularization == 0) {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'diabetes', 
@@ -1127,7 +1159,14 @@
 				{
 					field : 'sixmwd', 
 					title : '6MWD是否进行',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.sixmwd == 0) {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'noreason1', 
@@ -1537,7 +1576,14 @@
 				{
 					field : 'death', 
 					title : '是否死亡',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.death == 0) {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'deathreason', 
@@ -1592,6 +1638,17 @@
             };
             $.table.init(options);
         });
-    </script>
+
+		/* 布尔字段状态显示方法 */
+//		function statusTools(row) {
+//		    if (row.status == 1) {
+//    			return '<i class=\"fa fa-toggle-off text-info fa-2x\" onclick="enable(\'' + row.userId + '\')"></i> ';
+//    		} else {
+//    			return '<i class=\"fa fa-toggle-on text-info fa-2x\" onclick="disable(\'' + row.userId + '\')"></i> ';
+//    		}
+//		}
+		
+        
+        </script>
 </body>
 </html>

@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<meta charset='utf-8'>
 <head>
-	<th:block th:include="include :: header('–¬‘ˆ”√ªß')" />
+	<th:block th:include="include :: header('Êñ∞Â¢ûÁî®Êà∑')" />
 	<th:block th:include="include :: select2-css" />
 </head>
 <body>
     <div class="form-content">
         <form id="form-user-add" class="form-horizontal">
             <input name="deptId" type="hidden" id="treeId"/>
-            <h4 class="form-header h4">ª˘±æ–≈œ¢</h4>
+            <h4 class="form-header h4">Âü∫Êú¨‰ø°ÊÅØ</h4>
             <div class="row">
             	<div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>”√ªß√˚≥∆£∫</label>
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>Áî®Êà∑ÂêçÁß∞Ôºö</label>
                         <div class="col-sm-8">
-                            <input name="userName" placeholder="«Î ‰»Î”√ªß√˚≥∆" class="form-control" type="text" maxlength="30" required>
+                            <input name="userName" placeholder="ËØ∑ËæìÂÖ•Áî®Êà∑ÂêçÁß∞" class="form-control" type="text" maxlength="30" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>πÈ Ù≤ø√≈£∫</label>
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>ÂΩíÂ±ûÈÉ®Èó®Ôºö</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                            	<input name="deptName" onclick="selectDeptTree()" id="treeName" type="text" placeholder="«Î—°‘ÒπÈ Ù≤ø√≈" class="form-control" required>
+                            	<input name="deptName" onclick="selectDeptTree()" id="treeName" type="text" placeholder="ËØ∑ÈÄâÊã©ÂΩíÂ±ûÈÉ®Èó®" class="form-control" required>
                                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
                             </div>
                         </div>
@@ -33,35 +34,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span> ÷ª˙∫≈¬Î£∫</label>
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>ÊâãÊú∫Âè∑Á†ÅÔºö</label>
                         <div class="col-sm-8">
-                            <input name="phonenumber" placeholder="«Î ‰»Î ÷ª˙∫≈¬Î" class="form-control" type="text" maxlength="11" required>
+                            <input name="phonenumber" placeholder="ËØ∑ËæìÂÖ•ÊâãÊú∫Âè∑Á†Å" class="form-control" type="text" maxlength="11" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>” œ‰£∫</label>
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>ÈÇÆÁÆ±Ôºö</label>
                         <div class="col-sm-8">
-                            <input name="email" class="form-control email" type="text" maxlength="50" placeholder="«Î ‰»Î” œ‰" required>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>µ«¬º’À∫≈£∫</label>
-                        <div class="col-sm-8">
-                            <input name="loginName" placeholder="«Î ‰»Îµ«¬º’À∫≈" class="form-control required" type="text" maxlength="30" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>µ«¬º√‹¬Î£∫</label>
-                        <div class="col-sm-8">
-                            <input name="password" placeholder="«Î ‰»Îµ«¬º√‹¬Î" class="form-control" type="password" th:value="${@config.getKey('sys.user.initPassword')}" required>
+                            <input name="email" class="form-control email" type="text" maxlength="50" placeholder="ËØ∑ËæìÂÖ•ÈÇÆÁÆ±" required>
                         </div>
                     </div>
                 </div>
@@ -69,7 +52,25 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">”√ªß–‘±£∫</label>
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>ÁôªÂΩïË¥¶Âè∑Ôºö</label>
+                        <div class="col-sm-8">
+                            <input name="loginName" placeholder="ËØ∑ËæìÂÖ•ÁôªÂΩïË¥¶Âè∑" class="form-control required" type="text" maxlength="30" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>ÁôªÂΩïÂØÜÁ†ÅÔºö</label>
+                        <div class="col-sm-8">
+                            <input name="password" placeholder="ËØ∑ËæìÂÖ•ÁôªÂΩïÂØÜÁ†Å" class="form-control" type="password" th:value="${@config.getKey('sys.user.initPassword')}" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Áî®Êà∑ÊÄßÂà´Ôºö</label>
                         <div class="col-sm-8">
                             <div class="input-group" style="width: 100%">
                                 <select name="sex" class="form-control m-b" th:with="type=${@dict.getType('sys_user_sex')}">
@@ -81,7 +82,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">”√ªß◊¥Ã¨£∫</label>
+                        <label class="col-sm-4 control-label">Áî®Êà∑Áä∂ÊÄÅÔºö</label>
                         <div class="col-sm-8">
                             <label class="toggle-switch switch-solid">
 	                            <input type="checkbox" id="status" checked>
@@ -94,7 +95,7 @@
             <div class="row">
             	<div class="col-sm-12">
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">∏⁄Œª£∫</label>
+                        <label class="col-xs-2 control-label">Â≤ó‰ΩçÔºö</label>
                         <div class="col-xs-4">
                             <select id="post" class="form-control select2-multiple" multiple>
 								<option th:each="post:${posts}" th:value="${post.postId}" th:text="${post.postName}" th:disabled="${post.status == '1'}"></option>
@@ -106,7 +107,7 @@
             <div class="row">
             	<div class="col-sm-12">
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Ω«…´£∫</label>
+                        <label class="col-xs-2 control-label">ËßíËâ≤Ôºö</label>
                         <div class="col-xs-10">
                             <label th:each="role:${roles}" class="check-box">
 								<input name="role" type="checkbox" th:value="${role.roleId}" th:text="${role.roleName}" th:disabled="${role.status == '1'}">
@@ -115,11 +116,11 @@
                     </div>
                 </div>
             </div>
-            <h4 class="form-header h4">∆‰À˚–≈œ¢</h4>
+            <h4 class="form-header h4">ÂÖ∂‰ªñ‰ø°ÊÅØ</h4>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">±∏◊¢£∫</label>
+                        <label class="col-xs-2 control-label">Â§áÊ≥®Ôºö</label>
                         <div class="col-xs-10">
                             <textarea name="remark" maxlength="500" class="form-control" rows="3"></textarea>
                         </div>
@@ -131,8 +132,8 @@
       
     <div class="row">
         <div class="col-sm-offset-5 col-sm-10">
-            <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>±£ ¥Ê</button>&nbsp;
-            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>πÿ ±’ </button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>‰øù Â≠ò</button>&nbsp;
+            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>ÂÖ≥ Èó≠ </button>
         </div>
     </div>
 	<th:block th:include="include :: footer" />
@@ -199,13 +200,13 @@
         	},
         	messages: {
                 "loginName": {
-                    remote: "”√ªß“—æ≠¥Ê‘⁄"
+                    remote: "Áî®Êà∑Â∑≤ÁªèÂ≠òÂú®"
                 },
         		"email": {
-                    remote: "Email“—æ≠¥Ê‘⁄"
+                    remote: "EmailÂ∑≤ÁªèÂ≠òÂú®"
                 },
         		"phonenumber":{
-                	remote: " ÷ª˙∫≈¬Î“—æ≠¥Ê‘⁄"
+                	remote: "ÊâãÊú∫Âè∑Á†ÅÂ∑≤ÁªèÂ≠òÂú®"
         		}
             },
             focusCleanup: true
@@ -224,13 +225,13 @@
 	        }
 	    }
          
-        /*”√ªßπ‹¿Ì-–¬‘ˆ-—°‘Ò≤ø√≈ ˜*/
+        /*Áî®Êà∑ÁÆ°ÁêÜ-Êñ∞Â¢û-ÈÄâÊã©ÈÉ®Èó®Ê†ë*/
         function selectDeptTree() {
         	var treeId = $("#treeId").val();
         	var deptId = $.common.isEmpty(treeId) ? "100" : $("#treeId").val();
         	var url = ctx + "system/dept/selectDeptTree/" + deptId;
 			var options = {
-				title: '—°‘Ò≤ø√≈',
+				title: 'ÈÄâÊã©ÈÉ®Èó®',
 				width: "380",
 				url: url,
 				callBack: doSubmit

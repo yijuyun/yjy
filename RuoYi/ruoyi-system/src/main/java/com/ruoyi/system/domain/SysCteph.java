@@ -39,6 +39,7 @@ public class SysCteph extends BaseEntity
 	/** 患者姓名 */
 	private String patientName;
 	/** 患者性别 */
+    @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
 	private Integer patientSex;
 	/** 患者地址 */
 	private String patientAddress;
