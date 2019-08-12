@@ -103,7 +103,11 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">是否有VTE事件复发：</label>
 				<div class="col-sm-8">
-					<input id="vterelapse" name="vterelapse" class="form-control" type="text">
+		            <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="vterelapse" checked>
+	                    <span></span>
+	                </label>				
+<!--		<input id="vterelapse" name="vterelapse" class="form-control" type="text">-->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -325,7 +329,11 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">检测时或之前7日是否接受华法林抗凝治疗：</label>
 				<div class="col-sm-8">
-					<input id="hat" name="hat" class="form-control" type="text">
+		            <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="hat" checked>
+	                    <span></span>
+	                </label>				
+<!--					<input id="hat" name="hat" class="form-control" type="text">-->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -355,7 +363,11 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">冠心病是否已行血运重建：</label>
 				<div class="col-sm-8">
-					<input id="revascularization" name="revascularization" class="form-control" type="text">
+		            <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="revascularization" checked>
+	                    <span></span>
+	                </label>								
+<!--					<input id="revascularization" name="revascularization" class="form-control" type="text">-->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -1029,6 +1041,18 @@
     			layer.close(index);
 			}
 		}
+        function submitHandler() {
+	        if ($.validate.form()) {
+	        	var data = $("#form-user-add").serializeArray();
+	        	var status = $("input[id='status']").is(':checked') == true ? 0 : 1;
+	        	var roleIds = $.form.selectCheckeds("role");
+	        	var postIds = $.form.selectSelects("post");
+	        	data.push({"name": "status", "value": status});
+	        	data.push({"name": "roleIds", "value": roleIds});
+	        	data.push({"name": "postIds", "value": postIds});
+	        	$.operate.saveTab(prefix + "/add", data);
+	        }
+	    }
 
 	</script>
 </body>

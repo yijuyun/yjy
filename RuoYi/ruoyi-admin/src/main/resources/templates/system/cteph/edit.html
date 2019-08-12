@@ -18,9 +18,18 @@
  -->
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">科室：</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="deptName" onclick="selectDeptTree()" id="treeName" th:field="*{dept.deptName}" required disabled="disabled">
+                    	<span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+<!--
 				<div class="col-sm-8">
 					<input id="department" name="department" th:field="*{department}" class="form-control" type="text" disabled="disabled" >
 				</div>
+
+-->
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">制表人：</label>
@@ -37,7 +46,10 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">患者性别：</label>
 				<div class="col-sm-8">
-					<input id="patientSex" name="patientSex" th:field="*{patientSex}" class="form-control" type="text" disabled="disabled" >
+                    <select name="patientSex" class="form-control m-b" th:with="type=${@dict.getType('sys_user_sex')}" disabled="disabled" >
+		                <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{patientSex}"></option>
+		            </select>
+<!-- 					<input id="patientSex" name="patientSex" th:field="*{patientSex}" class="form-control" type="text" disabled="disabled" > -->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -67,7 +79,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">首发症状时间：</label>
 				<div class="col-sm-8">
-					<input id="firsttime" name="firsttime" th:field="*{firsttime}" class="form-control" type="text">
+					<input id="firsttime" name="firsttime" th:field="*{firsttime}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -103,13 +115,17 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">首发VTE事件时间：</label>
 				<div class="col-sm-8">
-					<input id="firstvtetime" name="firstvtetime" th:field="*{firstvtetime}" class="form-control" type="text">
+					<input id="firstvtetime" name="firstvtetime" th:field="*{firstvtetime}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">是否有VTE事件复发：</label>
 				<div class="col-sm-8">
-					<input id="vterelapse" name="vterelapse" th:field="*{vterelapse}" class="form-control" type="text">
+	                <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="vterelapse" th:checked="${vterelapse == '0' ? true : false}">
+	                    <span></span>
+	                </label>
+<!-- 					<input id="vterelapse" name="vterelapse" th:field="*{vterelapse}" class="form-control" type="text"> -->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -127,7 +143,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">诊断时间：</label>
 				<div class="col-sm-8">
-					<input id="malignanttumordate" name="malignanttumordate" th:field="*{malignanttumordate}" class="form-control" type="text">
+					<input id="malignanttumordate" name="malignanttumordate" th:field="*{malignanttumordate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -139,7 +155,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">脾切除手术时间：</label>
 				<div class="col-sm-8">
-					<input id="splenectormydate" name="splenectormydate" th:field="*{splenectormydate}" class="form-control" type="text">
+					<input id="splenectormydate" name="splenectormydate" th:field="*{splenectormydate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -151,7 +167,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">起搏器植入时间：</label>
 				<div class="col-sm-8">
-					<input id="pacemakerdate" name="pacemakerdate" th:field="*{pacemakerdate}" class="form-control" type="text">
+					<input id="pacemakerdate" name="pacemakerdate" th:field="*{pacemakerdate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -163,7 +179,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">手术时间：</label>
 				<div class="col-sm-8">
-					<input id="atrialhistorydate" name="atrialhistorydate" th:field="*{atrialhistorydate}" class="form-control" type="text">
+					<input id="atrialhistorydate" name="atrialhistorydate" th:field="*{atrialhistorydate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -175,7 +191,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">下肢静脉曲张诊断时间：</label>
 				<div class="col-sm-8">
-					<input id="levvdate" name="levvdate" th:field="*{levvdate}" class="form-control" type="text">
+					<input id="levvdate" name="levvdate" th:field="*{levvdate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -193,7 +209,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">炎症性肠病诊断时间：</label>
 				<div class="col-sm-8">
-					<input id="ibddate" name="ibddate" th:field="*{ibddate}" class="form-control" type="text">
+					<input id="ibddate" name="ibddate" th:field="*{ibddate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -331,7 +347,13 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">检测时或之前7日是否接受华法林抗凝治疗：</label>
 				<div class="col-sm-8">
+	                <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="hat" th:checked="${hat == '0' ? true : false}">
+	                    <span></span>
+	                </label>
+<!--
 					<input id="hat" name="hat" th:field="*{hat}" class="form-control" type="text">
+-->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -361,7 +383,13 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">冠心病是否已行血运重建：</label>
 				<div class="col-sm-8">
+	                <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="hat" th:checked="${hat == '0' ? true : false}">
+	                    <span></span>
+	                </label>
+<!--
 					<input id="revascularization" name="revascularization" th:field="*{revascularization}" class="form-control" type="text">
+-->				
 				</div>
 			</div>
 			<div class="form-group">	
@@ -475,7 +503,13 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">6MWD是否进行：</label>
 				<div class="col-sm-8">
+	                <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="sixmwd" th:checked="${sixmwd == '0' ? true : false}">
+	                    <span></span>
+	                </label>
+<!--
 					<input id="sixmwd" name="sixmwd" th:field="*{sixmwd}" class="form-control" type="text">
+-->				
 				</div>
 			</div>
 			<div class="form-group">	
@@ -613,7 +647,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">首次导管时间：</label>
 				<div class="col-sm-8">
-					<input id="firstcatheter" name="firstcatheter" th:field="*{firstcatheter}" class="form-control" type="text">
+					<input id="firstcatheter" name="firstcatheter" th:field="*{firstcatheter}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -949,7 +983,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">肺动脉内膜剥脱术时间：</label>
 				<div class="col-sm-8">
-					<input id="exfoliationdate" name="exfoliationdate" th:field="*{exfoliationdate}" class="form-control" type="text">
+					<input id="exfoliationdate" name="exfoliationdate" th:field="*{exfoliationdate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -961,13 +995,19 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">球囊肺动脉成形术时间：</label>
 				<div class="col-sm-8">
-					<input id="angioplastyfdate" name="angioplastyfdate" th:field="*{angioplastyfdate}" class="form-control" type="text">
+					<input id="angioplastyfdate" name="angioplastyfdate" th:field="*{angioplastyfdate}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">是否死亡：</label>
 				<div class="col-sm-8">
+	                <label class="toggle-switch switch-solid">
+	                    <input type="checkbox" id="death" th:checked="${death == '0' ? true : false}">
+	                    <span></span>
+	                </label>
+<!--
 					<input id="death" name="death" th:field="*{death}" class="form-control" type="text">
+-->	                
 				</div>
 			</div>
 			<div class="form-group">	
@@ -985,7 +1025,7 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">创建时间：</label>
 				<div class="col-sm-8">
-					<input id="createTime" name="createTime" th:field="*{createTime}" class="form-control" type="text">
+					<input id="createTime" name="createTime" th:field="*{createTime}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -997,13 +1037,13 @@
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">修改时间：</label>
 				<div class="col-sm-8">
-					<input id="updateTime" name="updateTime" th:field="*{updateTime}" class="form-control" type="text">
+					<input id="updateTime" name="updateTime" th:field="*{updateTime}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">时间戳：</label>
 				<div class="col-sm-8">
-					<input id="ts" name="ts" th:field="*{ts}" class="form-control" type="text">
+					<input id="ts" name="ts" th:field="*{ts}" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
@@ -1037,6 +1077,28 @@
 	            $.operate.save(prefix + "/edit", $('#form-cteph-edit').serialize());
 	        }
 	    }
+        /*用户管理-修改-选择部门树*/
+        function selectDeptTree() {
+        	var deptId = $.common.isEmpty($("#treeId").val()) ? "100" : $("#treeId").val();
+            var url = ctx + "system/dept/selectDeptTree/" + deptId;
+		    var options = {
+				title: '选择部门',
+				width: "380",
+				url: url,
+				callBack: doSubmit
+			};
+			$.modal.openOptions(options);
+		}
+		
+		function doSubmit(index, layero){
+			var tree = layero.find("iframe")[0].contentWindow.$._tree;
+			if ($.tree.notAllowParents(tree)) {
+    			var body = layer.getChildFrame('body', index);
+    			$("#treeId").val(body.find('#treeId').val());
+    			$("#treeName").val(body.find('#treeName').val());
+    			layer.close(index);
+			}
+		}
 	</script>
 </body>
 </html>

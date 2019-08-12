@@ -417,7 +417,54 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <select id="selectCtephById" parameterType="Integer" resultMap="CtephResult">
-        <include refid="selectCtephVo"/>
+        select 
+        	sys_cteph.id, sys_cteph.code, sys_cteph.department, sys_cteph.maker, 
+        	sys_cteph.patient_name, sys_cteph.patient_sex, sys_cteph.patient_address, 
+        	sys_cteph.birthday, sys_cteph.height, sys_cteph.weight, sys_cteph.firsttime, 
+        	sys_cteph.specialsigns, sys_cteph.vtehistory, sys_cteph.ape, sys_cteph.ledvt, 
+        	sys_cteph.otherthrombus, sys_cteph.firstvtetime, sys_cteph.vterelapse, 
+        	sys_cteph.malignanttumor, sys_cteph.specifictumor, sys_cteph.malignanttumordate, 
+        	sys_cteph.splenectomy, sys_cteph.splenectormydate, sys_cteph.pacemaker, 
+        	sys_cteph.pacemakerdate, sys_cteph.atrialhistory, sys_cteph.atrialhistorydate, 
+        	sys_cteph.levv, sys_cteph.levvdate, sys_cteph.ibd, sys_cteph.ibddiagnosis, 
+        	sys_cteph.ibddate, sys_cteph.connectivetissue, sys_cteph.aas, sys_cteph.la, 
+        	sys_cteph.acL_igg, sys_cteph.acl_igm, sys_cteph.lgg, sys_cteph.lgm, sys_cteph.sie, 
+        	sys_cteph.sjogrens, sys_cteph.ssclerosis, sys_cteph.mctd, sys_cteph.rarthritis, 
+        	sys_cteph.uctd, sys_cteph.octd, sys_cteph.octdspecific, sys_cteph.hps, 
+        	sys_cteph.hcylevel, sys_cteph.maximum, sys_cteph.threeitems, sys_cteph.at, 
+        	sys_cteph.proteins, sys_cteph.proteinc, sys_cteph.hat, sys_cteph.otherriskjudge, 
+        	sys_cteph.otherrisk, sys_cteph.hypertension, sys_cteph.coronaryheart, 
+        	sys_cteph.revascularization, sys_cteph.diabetes, sys_cteph.lhfailure, 
+        	sys_cteph.lhfailurespecific, sys_cteph.renalinsufficiency, 
+        	sys_cteph.cerebralinfarction, sys_cteph.copd, sys_cteph.congenitalheart, 
+        	sys_cteph.chdspecific, sys_cteph.hypothyroidism, sys_cteph.hyperthyroidism, 
+        	sys_cteph.anemia, sys_cteph.polycythemia, sys_cteph.eosinophilia, 
+        	sys_cteph.plateletlower, sys_cteph.plateletup, sys_cteph.othercomplications, 
+        	sys_cteph.othercomplicationss, sys_cteph.cteph, sys_cteph.sixmwd, 
+        	sys_cteph.noreason1, sys_cteph.walking, sys_cteph.respiratory, sys_cteph.vcmax, 
+        	sys_cteph.tlc, sys_cteph.rv, sys_cteph.rvtlc, sys_cteph.fev1, sys_cteph.fev1fvc, 
+        	sys_cteph.fef, sys_cteph.tlcosb, sys_cteph.tlcova, sys_cteph.cet, 
+        	sys_cteph.heartmri, sys_cteph.ppi, sys_cteph.ctpat, sys_cteph.mripae, 
+        	sys_cteph.cmri, sys_cteph.rhc, sys_cteph.noreason2, sys_cteph.otherreason, 
+        	sys_cteph.pa, sys_cteph.firstcatheter, sys_cteph.hr, sys_cteph.bpshrink, 
+        	sys_cteph.bprelaxation, sys_cteph.bpave, sys_cteph.rap, sys_cteph.rapshrink, 
+        	sys_cteph.raprelaxation1, sys_cteph.rapave, sys_cteph.pap, sys_cteph.papshrink, 
+        	sys_cteph.raprelaxation2, sys_cteph.papave, sys_cteph.pawp, sys_cteph.pawpshrink, 
+        	sys_cteph.pawprelaxation, sys_cteph.pawpave, sys_cteph.co, sys_cteph.comethod, 
+        	sys_cteph.ci, sys_cteph.pvr, sys_cteph.lvedd, sys_cteph.lvef, sys_cteph.pasp, 
+        	sys_cteph.tapse, sys_cteph.pe, sys_cteph.bloodgroup, sys_cteph.ddimer, sys_cteph.nt, 
+        	sys_cteph.ntnumber, sys_cteph.ast, sys_cteph.alt, sys_cteph.tbil, sys_cteph.dbil, 
+        	sys_cteph.cr, sys_cteph.bloodgas, sys_cteph.abgt, sys_cteph.pco, sys_cteph.po, 
+        	sys_cteph.sao, sys_cteph.paa, sys_cteph.anticoagulant, 
+        	sys_cteph.drug1, sys_cteph.otherdrug, sys_cteph.antiplatelet, sys_cteph.drug5, 
+        	sys_cteph.otherdrug2, sys_cteph.targeting, sys_cteph.laxg, sys_cteph.fivepi, 
+        	sys_cteph.drug2, sys_cteph.era, sys_cteph.drug3, sys_cteph.prostacyclin, 
+        	sys_cteph.drug4, sys_cteph.exfoliation, sys_cteph.exfoliationdate, 
+        	sys_cteph.angioplasty, sys_cteph.angioplastyfdate, sys_cteph.death, 
+        	sys_cteph.deathreason, sys_cteph.create_by, sys_cteph.create_time, 
+        	sys_cteph.update_by, sys_cteph.update_time, sys_cteph.ts, sys_cteph.dr, 
+        	sys_cteph.svo2, sys_dept.dept_name, sys_dept.leader 
+        from sys_cteph left join sys_dept on sys_cteph.department = sys_dept.dept_id			        
         where id = #{id} and dr = 0
     </select>
         
