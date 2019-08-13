@@ -16,7 +16,8 @@
 							</li>
 
 							<li>
-								科室：<input type="text" name="department"/>
+								科室：<input name="departmentName" onclick="selectDeptTree()" id="treeName" type="text" placeholder="请选择归属部门"  required>
+								<input name="department" id="department" type="text" hidden="hidden" />
 							</li>
 
 							<li>
@@ -28,8 +29,12 @@
 							</li>
 
 							<li>
-								患者性别：<input type="text" name="patientSex"/>
+								患者性别：<select name="patientSex" th:with="type=${@dict.getType('sys_user_sex')}">
+									<option value="">所有</option>
+									<option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+								</select>
 							</li>
+
 <!-- 
 							<li>
 								患者地址：<input type="text" name="patientAddress"/>
@@ -1611,16 +1616,6 @@
 					sortable: true
 				},
 				{
-					field : 'ts', 
-					title : '时间戳',
-					sortable: true
-				},
-				{
-					field : 'dr', 
-					title : '删除标记',
-					sortable: true
-				},
-				{
 					field : 'svo2', 
 					title : 'SvO2 (肺动脉氧饱和度), %',
 					sortable: true
@@ -1639,15 +1634,28 @@
             $.table.init(options);
         });
 
-		/* 布尔字段状态显示方法 */
-//		function statusTools(row) {
-//		    if (row.status == 1) {
-//    			return '<i class=\"fa fa-toggle-off text-info fa-2x\" onclick="enable(\'' + row.userId + '\')"></i> ';
-//    		} else {
-//    			return '<i class=\"fa fa-toggle-on text-info fa-2x\" onclick="disable(\'' + row.userId + '\')"></i> ';
-//    		}
-//		}
-		
+        /*用户管理-新增-选择部门树*/
+        function selectDeptTree() {
+        	var treeId = $("#treeId").val();
+        	var department = $.common.isEmpty(treeId) ? "100" : $("#department").val();
+        	var url = ctx + "system/dept/selectDeptTree/" + department;
+			var options = {
+				title: '选择科室',
+				width: "380",
+				url: url,
+				callBack: doSubmit
+			};
+			$.modal.openOptions(options);
+		}		
+		function doSubmit(index, layero){
+			var tree = layero.find("iframe")[0].contentWindow.$._tree;
+			if ($.tree.notAllowParents(tree)) {
+				var body = layer.getChildFrame('body', index);
+    			$("#department").val(body.find('#treeId').val());
+    			$("#treeName").val(body.find('#treeName').val());
+    			layer.close(index);
+			}
+		}
         
         </script>
 </body>

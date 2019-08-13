@@ -16,7 +16,7 @@
                         <span class="input-group-addon"><i class="fa fa-search"></i></span>
                     </div>
                 </div>
-			</div>
+			</div>            
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">患者姓名：</label>
 				<div class="col-sm-8">
@@ -31,7 +31,6 @@
             			    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
 			            </select>
                     </div>
-<!-- 					<input id="patientSex" name="patientSex" class="form-control" type="text"> -->
 				</div>
 			</div>
 			<div class="form-group">	
@@ -980,18 +979,6 @@
 				<label class="col-sm-3 control-label">死亡原因：</label>
 				<div class="col-sm-8">
 					<input id="deathreason" name="deathreason" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">创建者：</label>
-				<div class="col-sm-8">
-					<input id="createBy" name="createBy" class="form-control" type="text">
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="col-sm-3 control-label">创建时间：</label>
-				<div class="col-sm-8">
-					<input id="createTime" name="createTime" class="form-control" type="date">
 				</div>
 			</div>
 			<div class="form-group">	
