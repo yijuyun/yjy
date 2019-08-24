@@ -98,6 +98,18 @@ public class CtephController extends BaseController
 		return toAjax(ctephService.insertCteph(cteph));
 	}
 
+
+	/**
+	 * CTEPH调查详情
+	 */
+	@GetMapping("/view/{id}")
+	public String view(@PathVariable("id") Integer id, ModelMap mmap)
+	{
+		SysCteph cteph = ctephService.selectCtephById(id);
+		mmap.put("cteph", cteph);
+	    return prefix + "/view";
+	}
+
 	/**
 	 * 修改CTEPH调查
 	 */

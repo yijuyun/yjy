@@ -705,6 +705,9 @@
 				<a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:cteph:add">
 					<i class="fa fa-plus"></i> 添加
 				</a>
+				<a class="btn btn-primary single disabled" onclick="$.operate.view()" shiro:hasPermission="system:cteph:view">
+					<i class="fa fa-edit"></i> 详情
+				</a>
 				<a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:cteph:edit">
 					<i class="fa fa-edit"></i> 修改
 				</a>
@@ -722,6 +725,7 @@
 	</div>
     <div th:include="include :: footer"></div>
     <script th:inline="javascript">
+        var viewFlag = [[${@permission.hasPermi('system:cteph:view')}]];
         var editFlag = [[${@permission.hasPermi('system:cteph:edit')}]];
         var removeFlag = [[${@permission.hasPermi('system:cteph:remove')}]];
         var prefix = ctx + "system/cteph";
@@ -730,6 +734,7 @@
             var options = {
                 url: prefix + "/list",
                 createUrl: prefix + "/add",
+                viewUrl: prefix + "/view/{id}",	
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
 				exportUrl: prefix + "/export",
@@ -813,17 +818,38 @@
 				{
 					field : 'vtehistory', 
 					title : '既往静脉血栓栓塞症（VTE）病史',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.vtehistory == 1) {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'ape', 
 					title : '急性肺栓塞',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.ape == 1) {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'ledvt', 
 					title : '下肢深静脉血栓',
-					sortable: true
+					sortable: true,
+					formatter: function (value, row, index){ 
+					    if (row.ledvt == 1) {
+			    			return '<i class=\"fa fa-toggle-on text-info fa-2x\"></i> ';
+			    		} else {
+			    			return '<i class=\"fa fa-toggle-off text-info fa-2x\"></i> ';
+			    		}
+					}
 				},
 				{
 					field : 'otherthrombus', 
